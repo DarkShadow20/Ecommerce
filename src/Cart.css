@@ -1,0 +1,12 @@
+.cart{
+    display: flex;
+    padding:1rem;
+    background-color: white;
+    height: max-content;
+    justify-content: space-evenly;
+}
+.cart_right{
+    width: 15rem;
+    height: 7rem;
+    background-color: lightgray ;
+}

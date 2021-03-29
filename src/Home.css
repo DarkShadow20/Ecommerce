@@ -1,0 +1,8 @@
+.home{
+    width: 100%;
+}
+.home__row{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}

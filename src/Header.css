@@ -1,0 +1,36 @@
+.header{
+    position: sticky;
+    background-color: #131921;
+    display: flex;
+}
+.header__logo{
+    width: 100px;
+    color: #FF9900;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 8px;
+    object-fit: contain;
+}
+.header__nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    margin-left: 5px;
+}
+.header__link{
+    color: #fff;
+    text-decoration: none;
+}
+.header__option{
+    display: flex;
+    justify-content: space-between;
+}
+.option{
+    margin-left: 5px;
+    margin-right: 20px;
+}
+.header__optionbasket{
+    display: flex;
+    align-items: center;
+}
