@@ -6,7 +6,6 @@ import Subtotal from "./Subtotal";
 
 function Cart() {
     const [{cart}]=useCart();
-    console.log(cart)
     return (
         <div className="cart">
             <div className="cart-left">

@@ -3,7 +3,7 @@ import { useCart } from './CartContext';
 import './Subtotal.css';
 
 function Subtotal() {
-    const[{cart},dispatch]=useCart();
+    const[{cart}]=useCart();
     let quantArr=cart.map(item=>item.quantity)
     const reducer=(accumulator,currentValue)=>accumulator+currentValue;
     let subTotalItems=quantArr.reduce(reducer)

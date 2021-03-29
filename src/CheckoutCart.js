@@ -3,7 +3,7 @@ import {useCart} from "./CartContext.js";
 import "./CheckoutCart.css";
 
 function CheckoutCart({id,title,price,image,quantity,rating}) {
-    const [{},dispatch]=useCart();
+    const [dispatch]=useCart();
     const removeFromCart=()=>{
         dispatch({
             type:'REMOVE_FROM_CART',
@@ -23,7 +23,7 @@ function CheckoutCart({id,title,price,image,quantity,rating}) {
         })
       };
     return (
-        <div className="checkoutCart">
+        <div className="checkoutCart" key="id">
             <img className="checkoutCart_image" src={image} alt=""/>
             <div className="checkoutCart_info">
                 <p className="checkoutCart_title">{title}</p>

@@ -3,7 +3,6 @@ import ProductList from './ProductList'
 import "./Home.css";
 import faker from "faker";
 import { useCart } from './CartContext';
-import {state} from './reducer.js';
 
 faker.seed(123);
 export const products = [...Array(50)].map((item) => ({

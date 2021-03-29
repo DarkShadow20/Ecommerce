@@ -3,7 +3,7 @@ import { useCart } from './CartContext';
 import "./ProductList.css";
 
 function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery}) {
-    const [{},dispatch]=useCart();
+    const [dispatch]=useCart();
     const addToBasket=()=>{
         dispatch({
             type:'ADD_TO_CART',

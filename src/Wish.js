@@ -4,6 +4,7 @@ import {useCart} from "./CartContext";
 
 function Wish({id,name,price,image,quantity,rating,inStock,fastDelivery}) {
     const [{wishlist},dispatch]=useCart();
+    console.log(wishlist)
     const addToBasket=()=>{
         dispatch({
             type:'ADD_TO_CART_WISHLIST',
