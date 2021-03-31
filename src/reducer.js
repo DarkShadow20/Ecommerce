@@ -14,11 +14,25 @@ export const initialState={
     price: "84.00",
     quantity: 1,
     ratings: 2}],
-    wishlist:[],
+    wishlist:[{brand: "quo",
+    color: "lime",
+    fastDelivery: false,
+    id: "bb463b8b-b76c-4f6a-9726-65ab5730b69b",
+    idealFor: "Girl",
+    image: "http://placeimg.com/640/480/business",
+    inStock: true,
+    level: "advanced",
+    material: "Granite",
+    name: "Generic Concrete Table",
+    offer: "Republic Day Sale",
+    price: "84.00",
+    quantity: 1,
+    ratings: 2}],
     includeOutOfStock: false,
     onlyFastDelivery: false,
     sortBy: null,
-    priceRange: null
+    priceRange: null,
+    isInWishList:false
 }
 
 const reducer=(state=initialState,action)=>{
@@ -67,12 +81,12 @@ const reducer=(state=initialState,action)=>{
             case "ADD_TO_WISHLIST":
                 return{...state,
                 cart:[...state.cart],
-                wishlist:[...state.wishlist,action.item]}
+                wishlist:[...state.wishlist,action.item],
+                isInWishList:!state.isInWishList}
             case "ADD_TO_CART_WISHLIST":
                 let wishItem=state.wishlist.find(item=>action.item["id"]===item.id)
                 let wishRemove=state.wishlist.filter(item=>item.id!==wishItem.id)
                 let fromExisted_item= state.cart.find(item=> action.item["id"] === item.id)
-                console.log(wishRemove)
                 if(fromExisted_item)
                 {           
                     return {
@@ -88,8 +102,17 @@ const reducer=(state=initialState,action)=>{
                             wishlist:wishRemove            
                             }
                 }
+            case "TOGGLE_REMOVE_FROM_WISHLIST":
+                console.log(action)
+                let removeWishItem=state.wishlist.filter(item=>item.id!==action.id);
+                console.log(removeWishItem)
+                if(action.id===state.wishlist.id){
+                    return {...state,cart:[...state.cart],wishlist:removeWishItem,isInWishList:!state.isInWishList}
+                }
+                else{
+                    return {...state,cart:[...state.cart],wishlist:removeWishItem,isInWishList:!state.isInWishList}
+                }
             case "LOW_TO_HIGH":
-                console.log(initialState.sortBy)
                 return {
                     ...state,
                     sortBy: "LOW_TO_HIGH"

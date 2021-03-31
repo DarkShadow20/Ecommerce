@@ -6,7 +6,6 @@ import { useCart } from './CartContext';
 
 function Header() {
     const [{cart}]=useCart();
-    console.log(cart)
     return (
         <nav className="header">
             <Link to="/" style={{textDecoration:"none"}}>

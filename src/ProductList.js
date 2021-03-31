@@ -4,7 +4,6 @@ import "./ProductList.css";
 
 function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery}) {
     const [state,dispatch]=useCart();
-    console.log(state)
     const addToBasket=()=>{
         dispatch({
             type:'ADD_TO_CART',
@@ -33,6 +32,12 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
             }
         })
     }
+    const removefromWishList=()=>{
+        dispatch({
+            type:'TOGGLE_REMOVE_FROM_WISHLIST',
+            id:id
+        })
+    }
     return (
         <>
         <div className="product">
@@ -55,7 +60,7 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
            
             <img src={image} alt=""/>
             <button onClick={addToBasket} disabled={!inStock}>Add to Cart</button> 
-            <button onClick={addToWishlist}>Add to Wishlist</button>
+            {state.wishlist.find((items)=>items.id===id)?(<button onClick={removefromWishList}>Remove from Wishlist</button>):(<button onClick={addToWishlist}>Add to Wishlist</button>)}
         </div>
         </>
     )

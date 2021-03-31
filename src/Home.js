@@ -71,7 +71,6 @@ function Home() {
     state.onlyFastDelivery,
     state.includeOutOfStock
   );
-  console.log(products)
     return (
         <div className="home">
           <fieldset style={{ width: "100%", borderRadius: "1rem" }}>
@@ -119,7 +118,8 @@ function Home() {
                     quantity={items.quantity}
                     rating={items.ratings}
                     inStock={items.inStock}
-                    fastDelivery={items.fastDelivery}/>
+                    fastDelivery={items.fastDelivery}
+                    />
                 ))}
                 
             </div>
