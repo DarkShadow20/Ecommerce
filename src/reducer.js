@@ -36,7 +36,6 @@ export const initialState={
 }
 
 const reducer=(state=initialState,action)=>{
-    console.log(state.wishlist)
     switch(action.type){
         case "ADD_TO_CART":
             //let addedItem = products.find(item=> item.id === action.item["id"])
@@ -58,7 +57,6 @@ const reducer=(state=initialState,action)=>{
         case "REMOVE_FROM_CART":
             console.log(action)
             let removeItem=state.cart.filter(item=>item.id!==action.id);
-             //console.log(removeItem)
             return {...state,
             cart:removeItem}
         case "ADD_QUANTITY":
@@ -103,9 +101,7 @@ const reducer=(state=initialState,action)=>{
                             }
                 }
             case "TOGGLE_REMOVE_FROM_WISHLIST":
-                console.log(action)
                 let removeWishItem=state.wishlist.filter(item=>item.id!==action.id);
-                console.log(removeWishItem)
                 if(action.id===state.wishlist.id){
                     return {...state,cart:[...state.cart],wishlist:removeWishItem,isInWishList:!state.isInWishList}
                 }
