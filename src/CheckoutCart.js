@@ -3,8 +3,8 @@ import {useCart} from "./CartContext.js";
 import "./CheckoutCart.css";
 
 function CheckoutCart({id,title,price,image,quantity,rating}) {
-    const [state,dispatch]=useCart();
-    console.log(state)
+    const [{h},dispatch]=useCart();
+    console.log({h})
     const removeFromCart=()=>{
         dispatch({
             type:'REMOVE_FROM_CART',

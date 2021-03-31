@@ -6,7 +6,6 @@ import Wish from "./Wish.js";
 
 function WishList() {
     const [{wishlist}]=useCart();
-    console.log(wishlist)
     return(
         <div>
             {wishlist?.length===0?(
