@@ -2,9 +2,9 @@ import React from 'react'
 import "./WishList.css";
 import {useCart} from "./CartContext";
 
-function Wish({id,name,price,image,quantity,rating,inStock,fastDelivery}) {
-    const [{wishlist},dispatch]=useCart();
-    console.log(wishlist)
+function Wish({id,name,price,image,quantity,rating,inStock}) {
+    const [{wis},dispatch]=useCart();
+    console.log(wis)
     const addToBasket=()=>{
         dispatch({
             type:'ADD_TO_CART_WISHLIST',
