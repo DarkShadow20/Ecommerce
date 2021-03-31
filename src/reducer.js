@@ -42,7 +42,6 @@ const reducer=(state=initialState,action)=>{
             let existed_item= state.cart.find(item=> action.item["id"] === item.id)
          if(existed_item)
          {
-            console.log(action)
             return {
                     ...state,
                     cart:state.cart.map(product=>product.id===action.item["id"]?{...product,quantity:product.quantity+1}:product)            
@@ -55,7 +54,6 @@ const reducer=(state=initialState,action)=>{
                     }
         }   
         case "REMOVE_FROM_CART":
-            console.log(action)
             let removeItem=state.cart.filter(item=>item.id!==action.id);
             return {...state,
             cart:removeItem}
