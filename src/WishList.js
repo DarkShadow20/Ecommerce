@@ -11,12 +11,13 @@ function WishList() {
             {wishlist?.length===0?(
                 <div>
                     <h2>Your WishList is empty</h2>
-                    <p>You have no items in your Wishlist.</p>
+                    <p className="wish-empty-text">You have no items in your Wishlist.</p>
                 </div>
 
             ):(
-                <div>
+                <>
                     <h2>Your WishList</h2>
+                    <div className="card-collection-wrapper">
                     {wishlist.map((items)=>(
                     <Wish id={items.id}
                     name={items.name}
@@ -26,10 +27,10 @@ function WishList() {
                     rating={items.rating}
                     inStock={items.inStock}
                     fastDelivery={items.fastDelivery}/>
-                ))}
-                </div>
+                    ))}
+                    </div>
+                </>
             )}
-            
         </div>
     )
 }

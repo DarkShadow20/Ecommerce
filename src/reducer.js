@@ -79,6 +79,11 @@ const reducer=(state=initialState,action)=>{
                 cart:[...state.cart],
                 wishlist:[...state.wishlist,action.item],
                 isInWishList:!state.isInWishList}
+            case "REMOVE_FROM_WISHLIST":
+                let removeWishItems=state.wishlist.filter(item=>item.id!==action.id);
+                return {...state,
+                cart:[...state.cart],
+                wishlist:removeWishItems}
             case "ADD_TO_CART_WISHLIST":
                 let wishItem=state.wishlist.find(item=>action.item["id"]===item.id)
                 let wishRemove=state.wishlist.filter(item=>item.id!==wishItem.id)

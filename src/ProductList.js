@@ -40,9 +40,33 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
     }
     return (
         <>
-        <div className="product">
-            <div className="product__info">
-                <p>{name}</p>
+        <div class="card-collection-wrapper">
+	        <div class="card" >
+                <div class="img-header">
+                    <img class="card-img-top" src={image} alt="Card img cap"/> 
+                </div>
+            <div class="card-body" >
+                <h5 class="card-title">{name}</h5>
+                    <p class="card-text">
+                        <div className="product__rating">
+                        {
+                            Array(rating).fill().map((_)=>(
+                                <p>⭐</p>
+                            ))
+                        }
+                        </div>
+                    </p>
+                <span>
+                    <span class="strong-element">Rs.{price}</span>
+                </span>
+                <button className="btn btn-primary" onClick={addToBasket} disabled={!inStock}>Add to Cart</button> 
+            {state.wishlist.find((items)=>items.id===id)?(<button className="btn btn-primary" onClick={removefromWishList}>Remove from Wishlist</button>):(<button className="btn btn-primary" onClick={addToWishlist}>Add to Wishlist</button>)}
+            </div>
+            </div>
+        </div>
+        {/* <div className="card">
+            <div className="img-header">
+                <img class="card-img-top" src={image} alt="product-img"/>
                 <p className="product__price">
                     <small>Rs.</small>
                     <strong>{price}</strong>
@@ -58,10 +82,11 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
                 {fastDelivery &&<p>Fast delivery Available</p>}
             </div>
            
-            <img src={image} alt=""/>
+            
             <button onClick={addToBasket} disabled={!inStock}>Add to Cart</button> 
             {state.wishlist.find((items)=>items.id===id)?(<button onClick={removefromWishList}>Remove from Wishlist</button>):(<button onClick={addToWishlist}>Add to Wishlist</button>)}
-        </div>
+        </div> */}
+
         </>
     )
 }

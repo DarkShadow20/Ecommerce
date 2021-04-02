@@ -17,6 +17,7 @@ function Cart() {
             ):(
                 <div>
                     <h2>Your Shopping Cart</h2>
+                    <div className="card-collection-wrapper">
                     {cart.map(item=>(
                         <CheckoutCart 
                         id={item.id}
@@ -27,6 +28,7 @@ function Cart() {
                         image={item.image}
                         />
                     ))}
+                    </div>
                 </div>
             )}
             </div>

@@ -14,7 +14,7 @@ function Subtotal() {
             <p>
                 Subtotal ({subTotalItems} items):<strong>Rs.{price}</strong>
             </p>
-            <button>Buy Now</button>
+            <button className="btn btn-primary">Buy Now</button>
         </div>
     )
 }

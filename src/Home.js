@@ -72,7 +72,7 @@ function Home() {
     state.includeOutOfStock
   );
     return (
-        <div className="home">
+        <>
           <fieldset style={{ width: "100%", borderRadius: "1rem" }}>
           <legend>Sort by price</legend>
           <label>
@@ -109,7 +109,7 @@ function Home() {
             fast delivery only
           </label>
         </fieldset>
-            <div className="home__row">
+            <div className="card-collection-wrapper">
                 {filteredData.map((items)=>(
                     <ProductList id={items.id}
                     name={items.name}
@@ -121,9 +121,9 @@ function Home() {
                     fastDelivery={items.fastDelivery}
                     />
                 ))}
-                
-            </div>
-        </div>
+              </div>  
+            
+        </>
     )
 }
 

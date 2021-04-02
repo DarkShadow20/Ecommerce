@@ -1,11 +1,15 @@
-.wishlist_wrapper{
-    display: flex;
+.wish-empty-text{
+    margin-left: 1.2rem;
 }
-.wishlist_info{
+.card-collection-wrapper{
+    justify-content: flex-start;
     margin-left: 1rem;
 }
-.btn-cart{
-    background-color: #f0c14b;
-    border: 1px solid #a88734;
-    margin-bottom: 5px;
+.card{
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+.card-close{
+    cursor: pointer;
+    color: red;
 }
