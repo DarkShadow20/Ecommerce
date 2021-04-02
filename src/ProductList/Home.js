@@ -1,8 +1,8 @@
 import React from 'react'
 import ProductList from './ProductList'
-import "./Home.css";
+import "../css/Home.css";
 import faker from "faker";
-import { useCart } from './CartContext';
+import { useCart } from '../context/CartContext';
 
 faker.seed(123);
 export const products = [...Array(50)].map((item) => ({

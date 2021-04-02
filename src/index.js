@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { CartProvider } from './CartContext';
-import reducer,{ initialState } from './reducer';
+import { CartProvider } from './context/CartContext';
+import reducer,{ initialState } from './context/reducer';
 
 ReactDOM.render(
   <React.StrictMode>

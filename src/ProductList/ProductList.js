@@ -1,6 +1,6 @@
 import React from 'react'
-import { useCart } from './CartContext';
-import "./ProductList.css";
+import { useCart } from '../context/CartContext';
+import "../css/ProductList.css";
 
 function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery}) {
     const [state,dispatch]=useCart();

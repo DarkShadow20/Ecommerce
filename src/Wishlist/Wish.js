@@ -1,6 +1,6 @@
 import React from 'react'
-import "./WishList.css";
-import {useCart} from "./CartContext";
+import "../css/WishList.css";
+import {useCart} from "../context/CartContext";
 
 function Wish({id,name,price,image,quantity,rating,inStock}) {
     const [{wis},dispatch]=useCart();

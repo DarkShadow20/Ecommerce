@@ -1,7 +1,7 @@
 import React from 'react'
-import { useCart } from './CartContext'
-import "./CheckoutCart.css";
-import "./WishList.css";
+import { useCart } from '../context/CartContext'
+import "../css/CheckoutCart.css";
+import "../css/WishList.css";
 import Wish from "./Wish.js";
 
 function WishList() {
