@@ -73,42 +73,26 @@ function Home() {
   );
     return (
         <>
-          <fieldset style={{ width: "100%", borderRadius: "1rem" }}>
-          <legend>Sort by price</legend>
-          <label>
-            <input
-              type="radio"
-              name="price"
-              onClick={() => dispatch({ type: "LOW_TO_HIGH" })}
-            />
-            low to high
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="price"
-              onClick={() => dispatch({ type: "HIGH_TO_LOW" })}
-            />
-            high to low
-          </label>
-        </fieldset>
-        <fieldset style={{ width: "100%", borderRadius: "1rem" }}>
-          <legend>Preferences</legend>
-          <label>
+          <span className="sort_price">Sort by price</span>
+           <p className="input_field_radio"><input  type="radio" name="price" onClick={() => dispatch({ type: "LOW_TO_HIGH" })}/>low to high</p>
+          <p className="input_field_radio_left"><input type="radio" name="price" onClick={() => dispatch({ type: "HIGH_TO_LOW" })}/>high to low</p>
+          <br/>
+          <br/>
+          <span className="prefer">Preferences</span>
+          <span className="input_field">
             <input
               type="checkbox"
               onClick={() => dispatch({ type: "OUT_OF_STOCK" })}
             />
             include out of stock products
-          </label>
-          <label>
+          </span>
+          <span className="input_field">
             <input
               type="checkbox"
               onClick={() => dispatch({ type: "WITH_FAST_DELIVERY" })}
             />
             fast delivery only
-          </label>
-        </fieldset>
+          </span>
             <div className="card-collection-wrapper">
                 {filteredData.map((items)=>(
                     <ProductList id={items.id}
