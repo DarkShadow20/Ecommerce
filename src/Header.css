@@ -2,7 +2,7 @@
     position: sticky;
     background-color: #131921;
     display: flex;
-    margin-top: -1rem;
+    margin-top: 0;
     width: 100%;
 }
 .header__logo{
