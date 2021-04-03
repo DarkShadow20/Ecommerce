@@ -44,22 +44,29 @@ export const products = [...Array(50)].map((item) => ({
 function Home() {
   const [state,dispatch]=useCart();
   const getProductsUnderPrice = (products, priceRange) => {
-    if (priceRange) return products.filter((item) => item.price <= priceRange);
+    if (priceRange) 
+    {
+      return products.filter((item) => item.price <= priceRange);
+    }
     return products;
   };
 
   const getSortedData = (products, sortBy) => {
     if (sortBy === "LOW_TO_HIGH")
+    {
       return products.sort((a, b) => a.price - b.price);
+    }
     if (sortBy === "HIGH_TO_LOW")
+    {
       return products.sort((a, b) => b.price - a.price);
+    }
     return products;
   };
 
-  const getFilteredData = (products, onlyFastDelivery, includeOutOfStock) => {
+  const getFilteredData = (products, {state}) => {
     return products
-      .filter((item) => (onlyFastDelivery ? item.fastDelivery : true))
-      .filter((item) => (includeOutOfStock ? true : item.inStock));
+      .filter((item) => (state.onlyFastDelivery ? item.fastDelivery : true))
+      .filter((item) => (state.includeOutOfStock ? true : item.inStock));
   };
 
   const priceRangeData = getProductsUnderPrice(products, state.priceRange);
@@ -68,25 +75,24 @@ function Home() {
 
   const filteredData = getFilteredData(
     sortedData,
-    state.onlyFastDelivery,
-    state.includeOutOfStock
+    {state}
   );
     return (
         <>
-          <span className="sort_price">Sort by price</span>
-           <p className="input_field_radio"><input  type="radio" name="price" onClick={() => dispatch({ type: "LOW_TO_HIGH" })}/>low to high</p>
-          <p className="input_field_radio_left"><input type="radio" name="price" onClick={() => dispatch({ type: "HIGH_TO_LOW" })}/>high to low</p>
+          <span className="sort-price">Sort by price</span>
+           <p className="input-radio-low-to-high"><input  type="radio" name="price" onClick={() => dispatch({ type: "LOW_TO_HIGH" })}/>low to high</p>
+          <p className="input-radio-high-to-low"><input type="radio" name="price" onClick={() => dispatch({ type: "HIGH_TO_LOW" })}/>high to low</p>
           <br/>
           <br/>
           <span className="prefer">Preferences</span>
-          <span className="input_field">
+          <span className="input-field">
             <input
               type="checkbox"
               onClick={() => dispatch({ type: "OUT_OF_STOCK" })}
             />
             include out of stock products
           </span>
-          <span className="input_field">
+          <span className="input-field">
             <input
               type="checkbox"
               onClick={() => dispatch({ type: "WITH_FAST_DELIVERY" })}

@@ -7,8 +7,8 @@ import Subtotal from "../cart/Subtotal";
 function Cart() {
     const [{cart}]=useCart();
     return (
-        <div className="cart">
-            <div className="cart-left">
+        <div className="cart-container">
+            <div className="cart-container-left">
             {cart?.length === 0 ?(
                 <div>
                     <h2>Your Shopping cart is empty</h2>
@@ -33,7 +33,7 @@ function Cart() {
             )}
             </div>
             {cart.length>0 &&(
-                <div className="cart_right">
+                <div className="cart-container-right">
                     <Subtotal/> 
                 </div>
             )}

@@ -1,37 +1,8 @@
 @import url("https://nueui-v1.netlify.app/main.css");
-.product{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #DCDCDC;
-    margin: 5px;
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-}
-.product__info{
-    height: 100px;
-}
-.product__quantity{
-    display: flex;
-    margin-bottom: 38px;
-}
-.product__price{
-    margin-top: 2px;
-    margin-bottom: 3px;
-}
+
 .product__rating{
     display: flex;
     font-size: small;
 }
-.product > img{
-    max-height: 200px;
-    width: 100%;
-    object-fit: contain;
-    margin-top: 0.5rem;
-    margin-bottom: 15px;
-}
-.product > button{
-    background-color: #f0c14b;
-    border: 1px solid #a88734;
-    margin-bottom: 5px;
-}
+
 

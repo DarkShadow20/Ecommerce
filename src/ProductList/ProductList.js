@@ -64,28 +64,6 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
             </div>
             </div>
         </div>
-        {/* <div className="card">
-            <div className="img-header">
-                <img class="card-img-top" src={image} alt="product-img"/>
-                <p className="product__price">
-                    <small>Rs.</small>
-                    <strong>{price}</strong>
-                </p>
-                <div className="product__rating">
-                    {
-                        Array(rating).fill().map((_)=>(
-                            <p>⭐</p>
-                        ))
-                    }
-                </div>
-                {inStock &&<p>Stock Available</p>}
-                {fastDelivery &&<p>Fast delivery Available</p>}
-            </div>
-           
-            
-            <button onClick={addToBasket} disabled={!inStock}>Add to Cart</button> 
-            {state.wishlist.find((items)=>items.id===id)?(<button onClick={removefromWishList}>Remove from Wishlist</button>):(<button onClick={addToWishlist}>Add to Wishlist</button>)}
-        </div> */}
 
         </>
     )

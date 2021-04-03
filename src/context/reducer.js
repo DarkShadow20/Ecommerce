@@ -39,7 +39,7 @@ const reducer=(state=initialState,action)=>{
     switch(action.type){
         case "ADD_TO_CART":
             //let addedItem = products.find(item=> item.id === action.item["id"])
-            let existed_item= state.cart.find(item=> action.item["id"] === item.id)
+            const existed_item= state.cart.find(item=> action.item["id"] === item.id)
          if(existed_item)
          {
             return {
@@ -54,7 +54,7 @@ const reducer=(state=initialState,action)=>{
                     }
         }   
         case "REMOVE_FROM_CART":
-            let removeItem=state.cart.filter(item=>item.id!==action.id);
+            const removeItem=state.cart.filter(item=>item.id!==action.id);
             return {...state,
             cart:removeItem}
         case "ADD_QUANTITY":
@@ -80,14 +80,14 @@ const reducer=(state=initialState,action)=>{
                 wishlist:[...state.wishlist,action.item],
                 isInWishList:!state.isInWishList}
             case "REMOVE_FROM_WISHLIST":
-                let removeWishItems=state.wishlist.filter(item=>item.id!==action.id);
+                const removeWishItems=state.wishlist.filter(item=>item.id!==action.id);
                 return {...state,
                 cart:[...state.cart],
                 wishlist:removeWishItems}
-            case "ADD_TO_CART_WISHLIST":
-                let wishItem=state.wishlist.find(item=>action.item["id"]===item.id)
-                let wishRemove=state.wishlist.filter(item=>item.id!==wishItem.id)
-                let fromExisted_item= state.cart.find(item=> action.item["id"] === item.id)
+            case "MOVE_TO_CART":
+                const wishItem=state.wishlist.find(item=>action.item["id"]===item.id)
+                const wishRemove=state.wishlist.filter(item=>item.id!==wishItem.id)
+                const fromExisted_item= state.cart.find(item=> action.item["id"] === item.id)
                 if(fromExisted_item)
                 {           
                     return {
@@ -104,7 +104,7 @@ const reducer=(state=initialState,action)=>{
                             }
                 }
             case "TOGGLE_REMOVE_FROM_WISHLIST":
-                let removeWishItem=state.wishlist.filter(item=>item.id!==action.id);
+                const removeWishItem=state.wishlist.filter(item=>item.id!==action.id);
                 if(action.id===state.wishlist.id){
                     return {...state,cart:[...state.cart],wishlist:removeWishItem,isInWishList:!state.isInWishList}
                 }

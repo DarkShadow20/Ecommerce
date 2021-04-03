@@ -4,11 +4,11 @@ import '../css/Subtotal.css';
 
 function Subtotal() {
     const[{cart}]=useCart();
-    let quantArr=cart.map(item=>item.quantity)
+    let quantityArr=cart.map(item=>item.quantity)
     const reducer=(accumulator,currentValue)=>accumulator+currentValue;
-    let subTotalItems=quantArr.reduce(reducer)
+    let subTotalItems=quantityArr.reduce(reducer)
     let subTotalPriceArr=cart.map(item=>item.quantity*item.price)
-    let price=subTotalPriceArr.reduce(reducer)
+    let price=subTotalPriceArr.reduce(reducer,0)
     return (
         <div className="subtotal">
             <p>

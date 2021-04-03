@@ -1,36 +1,9 @@
 @import url("https://nueui-v1.netlify.app/main.css");
 
-.checkoutCart{
-    display: flex;
-}
-.checkoutCart_image{
-    object-fit: contain;
-    width: 180px;
-    height: 180px;
-    margin-left: 1rem;
-}
-.checkoutCart_info{
-    padding-left: 20px;
-}
-.checkoutCart_title{
-    margin-top: 15px;
-    font-size: 17px;
-    font-weight: 800;
-}
-.checkoutCart_info>button{
-    background: #f0c14b;
-    border: 1px solid;
-    margin-top: 10px;
-    border-color: #a88734;
-    color: #111;
-}
-.checkoutCart_rating{
-    display: flex;
-    margin: 15px 0;
-}
+
 .checkoutCart_quantity{
-    margin: 0 5px;
+    margin: 0 1rem;
 }
 .checkoutCart_quantity>span{
-    margin: 0 5px;
+    margin: 0 0.2rem;
 }

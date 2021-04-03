@@ -1,18 +1,18 @@
-.cart{
+.cart-container{
     display: flex;
     padding:1rem;
     background-color: white;
     height: max-content;
     justify-content: space-evenly;
 }
-.cart_right{
+.cart-container-right{
     width: 15.5rem;
 }
-@media only screen and (max-width: 600px) {
-    .cart{
+@media only screen and (max-width: 635px) {
+    .cart-container{
         flex-direction: column;
     }
-    .cart_right{
+    .cart-container-right{
         margin-top: 1rem;
         margin-left: 1rem;
     }

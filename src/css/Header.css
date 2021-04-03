@@ -1,16 +1,22 @@
+:root{
+    --nav-bar-color:#131921;
+    --logo-color:#FF9900;
+    --link-color:#fff;
+}
+
 .header{
     position: sticky;
-    background-color: #131921;
+    background-color: var(--nav-bar-color);
     display: flex;
     margin-top: 0;
     width: 100%;
 }
 .header__logo{
     width: 100px;
-    color: #FF9900;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-top: 8px;
+    color: var(--logo-color);
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+    padding-top: 0.5rem;
     object-fit: contain;
 }
 .header__nav{
@@ -18,10 +24,9 @@
     justify-content: flex-end;
     align-items: center;
     flex: 1;
-    margin-left: 5px;
 }
 .header__link{
-    color: #fff;
+    color: var(--link-color);
     text-decoration: none;
 }
 .header__option{
@@ -29,8 +34,8 @@
     justify-content: space-between;
 }
 .option{
-    margin-left: 5px;
-    margin-right: 20px;
+    margin-left: 0.2rem;
+    margin-right: 1.2rem;
 }
 .header__optionbasket{
     display: flex;

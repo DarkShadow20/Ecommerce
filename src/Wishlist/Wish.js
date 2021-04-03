@@ -3,11 +3,11 @@ import "../css/WishList.css";
 import {useCart} from "../context/CartContext";
 
 function Wish({id,name,price,image,quantity,rating,inStock}) {
-    const [{wis},dispatch]=useCart();
-    console.log(wis)
+    const [{wishlist},dispatch]=useCart();
+    console.log(wishlist)
     const addToBasket=()=>{
         dispatch({
-            type:'ADD_TO_CART_WISHLIST',
+            type:'MOVE_TO_CARTT',
             item:{
                 id,
                 name,

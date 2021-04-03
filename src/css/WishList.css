@@ -1,3 +1,7 @@
+:root{
+    --close-color:red;
+}
+
 .wish-empty-text{
     margin-left: 1.2rem;
 }
@@ -11,5 +15,5 @@
 }
 .card-close{
     cursor: pointer;
-    color: red;
+    color: var(--close-color);
 }

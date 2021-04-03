@@ -1,10 +1,12 @@
 @import url("https://nueui-v1.netlify.app/main.css");
-
+:root{
+    --border-color:#dddddd;
+}
 .subtotal{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #dddddd;
+    border: 1px solid var(--border-color);
     height: 10rem;
     padding: 1rem;
 }

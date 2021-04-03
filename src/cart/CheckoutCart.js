@@ -3,8 +3,8 @@ import {useCart} from "../context/CartContext";
 import "../css/CheckoutCart.css";
 
 function CheckoutCart({id,title,price,image,quantity,rating}) {
-    const [{h},dispatch]=useCart();
-    console.log({h})
+    const [{state},dispatch]=useCart();
+    console.log({state})
     const removeFromCart=()=>{
         dispatch({
             type:'REMOVE_FROM_CART',
@@ -14,13 +14,13 @@ function CheckoutCart({id,title,price,image,quantity,rating}) {
     const addQuantity=()=>{
         dispatch({
             type:'ADD_QUANTITY',
-            id
+            id:id
         })
     }
     const subtractQuantity = () => {
         dispatch( {
           type: 'SUB_QUANTITY',
-          id,
+          id:id,
         })
       };
     return (
@@ -50,30 +50,6 @@ function CheckoutCart({id,title,price,image,quantity,rating}) {
                  <button className="btn btn-primary" onClick={removeFromCart}>Remove From Cart</button>
              </div>
         </div>
-        // <div className="checkoutCart" key="id">
-        //     <img className="checkoutCart_image" src={image} alt=""/>
-        //     <div className="checkoutCart_info">
-        //         <p className="checkoutCart_title">{title}</p>
-
-        //         <p className="checkoutCart_price">
-        //             <small>Rs.</small>
-        //             <strong>{price}</strong>
-        //         </p>
-        //         <div className="checkoutCart_rating">
-        //             {Array(rating).fill().map((_)=>(
-        //                 <p >⭐</p>
-        //             ))}
-        //         </div>
-        //         <div className="checkoutCart_quantity">
-        //             <button onClick={addQuantity} >+</button>
-        //             <span className="quantity">{quantity}</span>
-        //             <button onClick={subtractQuantity} className="dec">-</button>
-        //         </div>
-        //         <button onClick={removeFromCart}>Remove From Cart</button>
-        //     </div>
-           
-        // </div>
-
     )
 }
 
