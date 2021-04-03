@@ -85,14 +85,14 @@ function Home() {
           <br/>
           <br/>
           <span className="prefer">Preferences</span>
-          <span className="input-field">
+          <span className="input-fields">
             <input
               type="checkbox"
               onClick={() => dispatch({ type: "OUT_OF_STOCK" })}
             />
             include out of stock products
           </span>
-          <span className="input-field">
+          <span className="input-fields">
             <input
               type="checkbox"
               onClick={() => dispatch({ type: "WITH_FAST_DELIVERY" })}
