@@ -17,3 +17,6 @@
     cursor: pointer;
     color: var(--close-color);
 }
+.checkoutCart_rating{
+    display: flex;
+}

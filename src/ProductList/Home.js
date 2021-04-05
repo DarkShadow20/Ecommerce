@@ -63,10 +63,10 @@ function Home() {
     return products;
   };
 
-  const getFilteredData = (products, {state}) => {
+  const getFilteredData = (products, onlyFastDelivery,includeOutOfStock) => {
     return products
-      .filter((item) => (state.onlyFastDelivery ? item.fastDelivery : true))
-      .filter((item) => (state.includeOutOfStock ? true : item.inStock));
+      .filter((item) => (onlyFastDelivery ? item.fastDelivery : true))
+      .filter((item) => (includeOutOfStock ? true : item.inStock));
   };
 
   const priceRangeData = getProductsUnderPrice(products, state.priceRange);
@@ -75,13 +75,15 @@ function Home() {
 
   const filteredData = getFilteredData(
     sortedData,
-    {state}
+    state.onlyFastDelivery,
+    state.includeOutOfStock
   );
     return (
         <>
           <span className="sort-price">Sort by price</span>
            <p className="input-radio-low-to-high"><input  type="radio" name="price" onClick={() => dispatch({ type: "LOW_TO_HIGH" })}/>low to high</p>
           <p className="input-radio-high-to-low"><input type="radio" name="price" onClick={() => dispatch({ type: "HIGH_TO_LOW" })}/>high to low</p>
+          <br/>
           <br/>
           <br/>
           <span className="prefer">Preferences</span>

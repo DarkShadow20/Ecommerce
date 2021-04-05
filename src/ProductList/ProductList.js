@@ -4,6 +4,7 @@ import "../css/ProductList.css";
 
 function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery}) {
     const [state,dispatch]=useCart();
+    console.log(inStock)
     const addToBasket=()=>{
         dispatch({
             type:'ADD_TO_CART',

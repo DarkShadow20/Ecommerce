@@ -4,5 +4,7 @@
     display: flex;
     font-size: small;
 }
-
+.btn-primary:disabled{
+    text-decoration: line-through;
+}
 

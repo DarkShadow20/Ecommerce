@@ -10,15 +10,15 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/wishlist">
+          <Route exact path="/wishlist">
             <Header/>
             <WishList/>
           </Route>
-          <Route path="/cart">
+          <Route exact path="/cart">
             <Header/>
             <Cart/>
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Header/>
             <Home/>
           </Route>
