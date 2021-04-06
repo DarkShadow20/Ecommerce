@@ -13,7 +13,7 @@ function Header() {
                 <h1 className="header__logo">Nile</h1>
             </Link>
             <div className="header__nav">
-                <Link to="/" className="header__link">
+                <Link to="/home" className="header__link">
                     <div className="header__option">
                         <span className="option">All Products</span>
                     </div>

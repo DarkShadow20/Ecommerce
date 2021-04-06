@@ -7,7 +7,7 @@ function Wish({id,name,price,image,quantity,rating,inStock}) {
     console.log(wishlist)
     const addToBasket=()=>{
         dispatch({
-            type:'MOVE_TO_CARTT',
+            type:'MOVE_TO_CART',
             item:{
                 id,
                 name,
@@ -23,7 +23,7 @@ function Wish({id,name,price,image,quantity,rating,inStock}) {
         <div class="card" >
         <div class="img-header">
             <img class="card-img-top" src={image} alt="Card img cap"/>
-            <button class="card-close close" data-dismiss="modal" aria-label="Close" onClick={()=>{dispatch({
+            <button class="card-close close" data-dismiss="modal" aria-label="Close"  onClick={()=>{dispatch({
             type:'REMOVE_FROM_WISHLIST',
             id:id
         })}}><span aria-hidden="true">&times;</span></button> 
@@ -42,7 +42,7 @@ function Wish({id,name,price,image,quantity,rating,inStock}) {
                 <span class="strong-element">Rs.{price}</span>
             </span>
             </p>
-            <button onClick={addToBasket} class="btn btn-primary">Add to Cart</button>
+            <button onClick={addToBasket} class="btn btn-primary" disabled={!inStock}>Add to Cart</button>
         </div>
         </div>
     )
