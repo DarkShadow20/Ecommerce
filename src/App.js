@@ -4,6 +4,7 @@ import Header from "./ProductList/Header";
 import Home from "./ProductList/Home";
 import Cart from "./cart/Cart";
 import WishList from "./Wishlist/WishList";
+import FrontHome from "./ProductList/FrontHome";
 
 function App() {
   return (
@@ -18,9 +19,13 @@ function App() {
             <Header/>
             <Cart/>
           </Route>
-          <Route exact path="/">
+          <Route exact path="/home">
             <Header/>
             <Home/>
+          </Route>
+          <Route exact path="/">
+            <Header/>
+            <FrontHome/>
           </Route>
         </Switch>
       </div>

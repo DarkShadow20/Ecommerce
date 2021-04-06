@@ -1,0 +1,22 @@
+@import url("https://nueui-v1.netlify.app");
+
+.home-icon{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.link{
+    text-decoration: none;
+    box-shadow: 2px 2px 4px #000;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn-link{
+    text-decoration: none;
+    color: #fff;
+}
+.btn-link:hover{
+    background-color: #2563EB;
+}
