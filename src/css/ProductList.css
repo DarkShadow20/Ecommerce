@@ -1,4 +1,7 @@
 @import url("https://nueui-v1.netlify.app/main.css");
+.card-collection-wrapper{
+    margin-left: 0.2rem;
+}
 .card{
     border: 1px solid #BFBFBF;
     margin-bottom: 0.5rem;
@@ -11,4 +14,12 @@
 
 .btn-toast>.btn-primary{
     width: 12rem;
+}
+@media only screen and (max-width: 600px){
+    .card-collection-wrapper{
+        margin-bottom: 0;
+    }
+    .card{
+        margin-bottom: 0;
+    }
 }
