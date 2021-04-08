@@ -1,31 +1,33 @@
 @import url("https://nue-ui.netlify.app/main.css");
-.home{
-    width: 100%;
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
 }
-.home__row{
+.filter-container{
+    border: 1px solid #BFBFBF;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    width: 15rem;
 }
-
 .sort-price{
     font-weight: 600;
     font-size: large;
+    margin-bottom: 1rem;
+}
+.input-radio-low-to-high{
+    padding: 1rem;
+}
+.input-radio-high-to-low{
     padding: 1rem;
 }
 .prefer{
-    font-weight: 600;
     font-size: large;
-    padding-left: 1rem;
-}
-.input-radio-low-to-high{
-    display: inline-block;
-    padding-left: 1rem;
-}
-.input-radio-high-to-low{
-    display: inline-block;
-    padding-left: 13rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 .input-fields{
-    padding: 2.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
 }

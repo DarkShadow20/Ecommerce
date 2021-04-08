@@ -7,4 +7,6 @@
 .btn-primary:disabled{
     text-decoration: line-through;
 }
-
+.btn-toast>.btn-primary{
+    width: 12rem;
+}

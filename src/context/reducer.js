@@ -77,7 +77,7 @@ const reducer=(state=initialState,action)=>{
             case "ADD_TO_WISHLIST":
                 return{...state,
                 cart:[...state.cart],
-                wishlist:[...state.wishlist,action.item],
+                wishlist:[...state.wishlist,action.payload],
                 isInWishList:!state.isInWishList}
             case "REMOVE_FROM_WISHLIST":
                 const removeWishItems=state.wishlist.filter(item=>item.id!==action.id);
@@ -85,14 +85,14 @@ const reducer=(state=initialState,action)=>{
                 cart:[...state.cart],
                 wishlist:removeWishItems}
             case "MOVE_TO_CART":
-                const wishItem=state.wishlist.find(item=>action.item["id"]===item.id)
+                const wishItem=state.wishlist.find(item=>action.payload.id===item.id)
                 const wishRemove=state.wishlist.filter(item=>item.id!==wishItem.id)
-                const fromExisted_item= state.cart.find(item=> action.item["id"] === item.id)
+                const fromExisted_item= state.cart.find(item=> action.payload["id"] === item.id)
                 if(fromExisted_item)
                 {           
                     return {
                             ...state,
-                            cart:state.cart.map(product=>product.id===action.item["id"]?{...product,quantity:product.quantity+1}:product),     
+                            cart:state.cart.map(product=>product.id===action.payload["id"]?{...product,quantity:product.quantity+1}:product),     
                             wishlist:wishRemove
                             }
                 }
@@ -104,14 +104,15 @@ const reducer=(state=initialState,action)=>{
                             }
                 }
             case "TOGGLE_REMOVE_FROM_WISHLIST":
-                const removeWishItem=state.wishlist.filter(item=>item.id!==action.id);
-                if(action.id===state.wishlist.id){
+                const removeWishItem=state.wishlist.filter(item=>item.id!==action.payload);
+                if(action.payload===state.wishlist.id){
                     return {...state,cart:[...state.cart],wishlist:removeWishItem,isInWishList:!state.isInWishList}
                 }
                 else{
                     return {...state,cart:[...state.cart],wishlist:removeWishItem,isInWishList:!state.isInWishList}
                 }
             case "LOW_TO_HIGH":
+                console.log("Hi")
                 return {
                     ...state,
                     sortBy: "LOW_TO_HIGH"

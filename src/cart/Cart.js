@@ -1,6 +1,6 @@
 import React from 'react'
 import { useCart } from '../context/CartContext'
-import CheckoutCart from "../cart/CheckoutCart";
+import {CheckoutCart} from "..";
 import "../css/Cart.css";
 import Subtotal from "../cart/Subtotal";
 
@@ -17,15 +17,10 @@ function Cart() {
             ):(
                 <div>
                     <h2>Your Shopping Cart</h2>
-                    <div className="card-collection-wrapper">
+                    <div className="card-collection-wrappers">
                     {cart.map(item=>(
                         <CheckoutCart 
-                        id={item.id}
-                        title={item.name}
-                        price={item.price}
-                        rating={item.rating}
-                        quantity={item.quantity}
-                        image={item.image}
+                        item={item}
                         />
                     ))}
                     </div>

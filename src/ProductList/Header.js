@@ -1,9 +1,9 @@
 import React from 'react'
 import "../css/Header.css";
 import {Link} from "react-router-dom";
-import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
-import { useCart } from '../context/CartContext';
-import "../exports.js"
+import {ShoppingBasketIcon} from "..";
+import { useCart } from '../context/CartContext'
+
 
 function Header() {
     const [{cart}]=useCart();

@@ -1,8 +1,8 @@
 import React from 'react'
-import ProductList from './ProductList'
+import {ProductList} from '..'
 import "../css/Home.css";
 import faker from "faker";
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/CartContext'
 
 faker.seed(123);
 export const products = [...Array(50)].map((item) => ({
@@ -79,13 +79,11 @@ function Home() {
     state.includeOutOfStock
   );
     return (
-        <>
-          <span className="sort-price">Sort by price</span>
-           <p className="input-radio-low-to-high"><input  type="radio" name="price" onClick={() => dispatch({ type: "LOW_TO_HIGH" })}/>low to high</p>
-          <p className="input-radio-high-to-low"><input type="radio" name="price" onClick={() => dispatch({ type: "HIGH_TO_LOW" })}/>high to low</p>
-          <br/>
-          <br/>
-          <br/>
+        <div className="main-container">
+          <div className="filter-container">
+            <span className="sort-price">Sort by price</span>
+            <p className="input-radio-low-to-high"><input  type="radio" name="price" onClick={() => dispatch({ type: "LOW_TO_HIGH" })}/>low to high</p>
+            <p className="input-radio-high-to-low"><input type="radio" name="price" onClick={() => dispatch({ type: "HIGH_TO_LOW" })}/>high to low</p>
           <span className="prefer">Preferences</span>
           <span className="input-fields">
             <input
@@ -101,6 +99,7 @@ function Home() {
             />
             fast delivery only
           </span>
+          </div>
             <div className="card-collection-wrapper">
                 {filteredData.map((items)=>(
                     <ProductList id={items.id}
@@ -115,7 +114,7 @@ function Home() {
                 ))}
               </div>  
             
-        </>
+        </div>
     )
 }
 

@@ -1,9 +1,16 @@
 @import url("https://nueui-v1.netlify.app/main.css");
 
-
-.checkoutCart_quantity{
+.card-collection-wrappers{
+    display: flex;
+    flex-direction: column;
+}
+.card-collection-wrappers>.card{
+    display: flex;
+    flex-direction: column;
+}
+.checkoutCart-quantity{
     margin: 0 1rem;
 }
-.checkoutCart_quantity>span{
+.checkoutCart-quantity>span{
     margin: 0 0.2rem;
 }

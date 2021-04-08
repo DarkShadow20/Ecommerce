@@ -1,10 +1,13 @@
 @import url("https://nueui-v1.netlify.app");
-
+body{
+    background-color: #E6E6E6;
+}
 .home-icon{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 40%;
+    margin-bottom: 1rem;
 }
 .link{
     text-decoration: none;
@@ -12,6 +15,13 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    background-color: #3B82F6;
+    padding: 1rem;
+    border: none;
+    color: #fff;
+    font-size: large;
+    cursor: pointer;
+    outline: none;
 }
 .btn-link{
     text-decoration: none;

@@ -10,21 +10,18 @@ function App() {
   return (
     <Router>
       <div className="App">
+      <Header/>
         <Switch>
           <Route exact path="/wishlist">
-            <Header/>
             <WishList/>
           </Route>
           <Route exact path="/cart">
-            <Header/>
             <Cart/>
           </Route>
           <Route exact path="/home">
-            <Header/>
             <Home/>
           </Route>
           <Route exact path="/">
-            <Header/>
             <FrontHome/>
           </Route>
         </Switch>

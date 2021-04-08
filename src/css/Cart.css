@@ -5,6 +5,10 @@
     height: max-content;
     justify-content: space-evenly;
 }
+.card-collection-wrappers{
+    display: flex;
+    flex-direction: column;
+}
 .cart-container-right{
     width: 15.5rem;
 }

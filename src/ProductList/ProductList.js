@@ -1,10 +1,11 @@
 import React from 'react'
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/CartContext'
 import "../css/ProductList.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery}) {
     const [state,dispatch]=useCart();
-    console.log(inStock)
     const addToBasket=()=>{
         dispatch({
             type:'ADD_TO_CART',
@@ -17,11 +18,12 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
                 rating
             }
         })
+        
     };
     const addToWishlist=()=>{
         dispatch({
             type:'ADD_TO_WISHLIST',
-            item:{
+            payload:{
                 id,
                 name,
                 price,
@@ -33,10 +35,13 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
             }
         })
     }
+    const notifyForCart=()=>{toast.success("Added To Cart",{position:toast.POSITION.BOTTOM_RIGHT})}
+    const notifyForWishlist=()=>{toast.success("Added to Wishlist",{position:toast.POSITION.BOTTOM_RIGHT})}
+    const notifyForRemovalWishlist=()=>{toast.info("Removed from wishlist",{position:toast.POSITION.BOTTOM_RIGHT})}
     const removefromWishList=()=>{
         dispatch({
             type:'TOGGLE_REMOVE_FROM_WISHLIST',
-            id:id
+            payload:id
         })
     }
     return (
@@ -60,8 +65,13 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
                 <span>
                     <span class="strong-element">Rs.{price}</span>
                 </span>
-                <button className="btn btn-primary" onClick={addToBasket} disabled={!inStock}>Add to Cart</button> 
-            {state.wishlist.find((items)=>items.id===id)?(<button className="btn btn-primary" onClick={removefromWishList}>Remove from Wishlist</button>):(<button className="btn btn-primary" onClick={addToWishlist}>Add to Wishlist</button>)}
+                <div className="btn-toast">
+                    <button className="btn btn-primary" onClick={()=>{
+                        addToBasket();
+                        notifyForCart();}} disabled={!inStock}>Add to Cart</button> 
+                    <ToastContainer/>
+                </div>
+            {state.wishlist.find((items)=>items.id===id)?(<button className="btn btn-primary" onClick={()=>{removefromWishList();notifyForRemovalWishlist()}}>Remove from Wishlist</button>):(<button className="btn btn-primary" onClick={()=>{addToWishlist();notifyForWishlist();}}>Add to Wishlist</button>)}
             </div>
             </div>
         </div>

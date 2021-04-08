@@ -5,6 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CartProvider } from './context/CartContext';
 import reducer,{ initialState } from './context/reducer';
+export {default as Wish} from "./Wishlist/Wish";
+export {default as CheckoutCart} from "./cart/CheckoutCart";
+export {default as ShoppingBasketIcon} from "@material-ui/icons/ShoppingBasket";
+export {default as ProductList} from "./ProductList/ProductList"
 
 ReactDOM.render(
   <React.StrictMode>

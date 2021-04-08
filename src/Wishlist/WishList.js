@@ -1,8 +1,8 @@
 import React from 'react'
-import { useCart } from '../context/CartContext'
+import { useCart } from '../context/CartContext';
 import "../css/CheckoutCart.css";
 import "../css/WishList.css";
-import Wish from "./Wish.js";
+import {Wish} from "..";
 
 function WishList() {
     const [{wishlist}]=useCart();
@@ -19,14 +19,7 @@ function WishList() {
                     <h2>Your WishList</h2>
                     <div className="card-collection-wrapper">
                     {wishlist.map((items)=>(
-                    <Wish id={items.id}
-                    name={items.name}
-                    price={items.price}
-                    image={items.image}
-                    quantity={items.quantity}
-                    rating={items.rating}
-                    inStock={items.inStock}
-                    fastDelivery={items.fastDelivery}/>
+                    <Wish items={items}/>
                     ))}
                     </div>
                 </>
