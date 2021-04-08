@@ -68,7 +68,7 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
                 <div className="btn-toast">
                     <button className="btn btn-primary" onClick={()=>{
                         addToBasket();
-                        notifyForCart();}} disabled={!inStock}>Add to Cart</button> 
+                        notifyForCart();}} disabled={!inStock} style={!inStock?{opacity:0.2}:{opacity:1}}>Add to Cart</button> 
                     <ToastContainer/>
                 </div>
             {state.wishlist.find((items)=>items.id===id)?(<button className="btn btn-primary" onClick={()=>{removefromWishList();notifyForRemovalWishlist()}}>Remove from Wishlist</button>):(<button className="btn btn-primary" onClick={()=>{addToWishlist();notifyForWishlist();}}>Add to Wishlist</button>)}

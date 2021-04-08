@@ -35,7 +35,7 @@ function Wish({items}) {
                 <span class="strong-element">Rs.{items.price}</span>
             </span>
             </p>
-            <button onClick={addToBasket} class="btn btn-primary" disabled={!items.inStock}>Add to Cart</button>   
+            <button onClick={addToBasket} class="btn btn-primary" disabled={!items.inStock} style={!items.inStock?{opacity:0.2}:{opacity:1}}>Add to Cart</button>   
         </div>
         </div>
     )

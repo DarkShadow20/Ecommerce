@@ -9,6 +9,8 @@
     flex-direction: column;
     padding: 1rem;
     width: 15rem;
+    margin-top: 2rem;
+    height: 20%;
 }
 .sort-price{
     font-weight: 600;
@@ -30,4 +32,15 @@
 .input-fields{
     margin-top: 1rem;
     padding: 1rem;
+}
+.remove-filters{
+    margin-top: 2rem;
+    font-size: larger;
+    font-weight: 600;
+    text-align: center;
+    color: #FF3F6C;
+    background-color: #E6E6E6;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }

@@ -1,12 +1,14 @@
 @import url("https://nueui-v1.netlify.app/main.css");
-
+.card{
+    border: 1px solid #BFBFBF;
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+}
 .product__rating{
     display: flex;
     font-size: small;
 }
-.btn-primary:disabled{
-    text-decoration: line-through;
-}
+
 .btn-toast>.btn-primary{
     width: 12rem;
 }

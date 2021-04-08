@@ -99,6 +99,9 @@ function Home() {
             />
             fast delivery only
           </span>
+          <button className="remove-filters" onClick={() => window.location.reload(false)}>
+            Remove Filters
+          </button>
           </div>
             <div className="card-collection-wrapper">
                 {filteredData.map((items)=>(
