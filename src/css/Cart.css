@@ -1,7 +1,6 @@
 .cart-container{
     display: flex;
     padding:1rem;
-    background-color: white;
     height: max-content;
     justify-content: space-evenly;
 }
