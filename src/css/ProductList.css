@@ -19,7 +19,11 @@
     .card-collection-wrapper{
         margin-bottom: 0;
     }
+    .card-collection-wrappers{
+        border: 0;
+    }
     .card{
         margin-bottom: 0;
+        border: 1px solid #BFBFBF;
     }
 }

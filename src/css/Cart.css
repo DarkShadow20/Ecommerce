@@ -7,11 +7,12 @@
 .card-collection-wrappers{
     display: flex;
     flex-direction: column;
+    border: none;
 }
 .cart-container-right{
     width: 15.5rem;
 }
-@media only screen and (max-width: 635px) {
+@media only screen and (max-width: 600px) {
     .cart-container{
         flex-direction: column;
     }

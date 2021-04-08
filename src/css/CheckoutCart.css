@@ -1,19 +1,20 @@
 @import url("https://nueui-v1.netlify.app/main.css");
-
 .card-collection-wrappers{
+    border: none;
+}
+.cards{
     display: flex;
     flex-direction: column;
-}
-.card{
-    border: 1px solid #BFBFBF;
-}
-.card-collection-wrappers>.card{
-    display: flex;
-    flex-direction: column;
+    margin-top: 1rem;
+    border: 1px solid #bfbfbf;
+    width: 15.7rem;
 }
 .checkoutCart-quantity{
     margin: 0 1rem;
 }
 .checkoutCart-quantity>span{
     margin: 0 0.2rem;
+}
+.card-img-top{
+    margin-bottom: -0.4rem;
 }

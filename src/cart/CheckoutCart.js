@@ -25,7 +25,7 @@ function CheckoutCart({item}) {
         })
       };
     return (
-            <div className="card">
+            <div className="cards">
                 <div className="img-header">
                     <img className="card-img-top" src={item.image} alt="Card img cap"/> 
                 </div>
