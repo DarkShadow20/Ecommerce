@@ -49,8 +49,9 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
         <div class="card-collection-wrapper">
 	        <div class="card" >
                 <div class="img-header">
-                    <img class="card-img-top" src={image} alt="Card img cap"/> 
+                    <img class="card-img-top" src={image} alt="Card img cap" style={!inStock?{opacity:0.1}:{opacity:1}}/> 
                 </div>
+                {!inStock && <span className="out-of-stock-overlay">Out of Stock</span>}
             <div class="card-body" >
                 <h5 class="card-title">{name}</h5>
                     <p class="card-text">
@@ -68,7 +69,7 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
                 <div className="btn-toast">
                     <button className="btn btn-primary" onClick={()=>{
                         addToBasket();
-                        notifyForCart();}} disabled={!inStock} style={!inStock?{opacity:0.2}:{opacity:1}}>Add to Cart</button> 
+                        notifyForCart();}} disabled={!inStock} style={!inStock?{opacity:0.1}:{opacity:1}}>Add to Cart</button> 
                     <ToastContainer/>
                 </div>
             {state.wishlist.find((items)=>items.id===id)?(<button className="btn btn-primary" onClick={()=>{removefromWishList();notifyForRemovalWishlist()}}>Remove from Wishlist</button>):(<button className="btn btn-primary" onClick={()=>{addToWishlist();notifyForWishlist();}}>Add to Wishlist</button>)}
