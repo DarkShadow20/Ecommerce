@@ -38,21 +38,20 @@ export const initialState={
 const reducer=(state=initialState,action)=>{
     switch(action.type){
         case "ADD_TO_CART":
-            //let addedItem = products.find(item=> item.id === action.item["id"])
             const existed_item= state.cart.find(item=> action.item["id"] === item.id)
-         if(existed_item)
-         {
-            return {
-                    ...state,
-                    cart:state.cart.map(product=>product.id===action.item["id"]?{...product,quantity:product.quantity+1}:product)            
-                    }
-        }
-        else{
-            return {
-                    ...state,
-                    cart:[...state.cart,action.item]            
-                    }
-        }   
+            if(existed_item)
+            {
+                return {
+                        ...state,
+                        cart:state.cart.map(product=>product.id===action.item["id"]?{...product,quantity:product.quantity+1}:product)            
+                        }
+            }
+            else{
+                return {
+                        ...state,
+                        cart:[...state.cart,action.item]            
+                        }
+            }   
         case "REMOVE_FROM_CART":
             const removeItem=state.cart.filter(item=>item.id!==action.id);
             return {...state,
@@ -112,7 +111,6 @@ const reducer=(state=initialState,action)=>{
                     return {...state,cart:[...state.cart],wishlist:removeWishItem,isInWishList:!state.isInWishList}
                 }
             case "LOW_TO_HIGH":
-                console.log("Hi")
                 return {
                     ...state,
                     sortBy: "LOW_TO_HIGH"
@@ -131,6 +129,14 @@ const reducer=(state=initialState,action)=>{
                 return {
                     ...state,
                     onlyFastDelivery:!state.onlyFastDelivery
+                }
+            case "RESET_FILTERS":
+                console.log("Hello")
+                return{
+                    ...state,
+                    sortBy:null,
+                    includeOutOfStock:false,
+                    onlyFastDelivery:false
                 }
         default:
             return state;

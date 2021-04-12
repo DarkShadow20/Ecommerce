@@ -82,24 +82,24 @@ function Home() {
         <div className="main-container">
           <div className="filter-container">
             <span className="sort-price">Sort by price</span>
-            <p className="input-radio-low-to-high"><input  type="radio" name="price" onClick={() => dispatch({ type: "LOW_TO_HIGH" })}/>low to high</p>
-            <p className="input-radio-high-to-low"><input type="radio" name="price" onClick={() => dispatch({ type: "HIGH_TO_LOW" })}/>high to low</p>
+            <p className="input-radio-low-to-high"><input  type="radio" name="price" onClick={() => dispatch({ type: "LOW_TO_HIGH" })} checked={state.sortBy && state.sortBy==="LOW_TO_HIGH"}/>low to high</p>
+            <p className="input-radio-high-to-low"><input type="radio" name="price" onClick={() => dispatch({ type: "HIGH_TO_LOW" })} checked={state.sortBy && state.sortBy==="HIGH_TO_LOW"}/>high to low</p>
           <span className="prefer">Preferences</span>
           <span className="input-fields">
             <input
               type="checkbox"
-              onClick={() => dispatch({ type: "OUT_OF_STOCK" })}
+              onClick={() => dispatch({ type: "OUT_OF_STOCK" })} checked={state.includeOutOfStock}
             />
             include out of stock products
           </span>
           <span className="input-fields">
             <input
               type="checkbox"
-              onClick={() => dispatch({ type: "WITH_FAST_DELIVERY" })}
+              onClick={() => dispatch({ type: "WITH_FAST_DELIVERY" })} checked={state.onlyFastDelivery}
             />
             fast delivery only
           </span>
-          <button className="remove-filters" onClick={() => window.location.reload(false)}>
+          <button className="remove-filters" onClick={() => dispatch({type:"RESET_FILTERS"})}>
             Remove Filters
           </button>
           </div>
