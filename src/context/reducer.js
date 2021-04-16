@@ -84,21 +84,21 @@ const reducer=(state=initialState,action)=>{
                 cart:[...state.cart],
                 wishlist:removeWishItems}
             case "MOVE_TO_CART":
-                const wishItem=state.wishlist.find(item=>action.payload.id===item.id)
-                const wishRemove=state.wishlist.filter(item=>item.id!==wishItem.id)
-                const fromExisted_item= state.cart.find(item=> action.payload["id"] === item.id)
-                if(fromExisted_item)
-                {           
+                const wishItem=state.wishlist.find(item=>action.payload === item.id)
+                const wishRemove=state.wishlist.filter(item=>item.id !== wishItem.id)
+                const fromExisted_item= state.cart.find(item=> action.payload === item.id)
+                if(fromExisted_item!==undefined)
+                {   
                     return {
                             ...state,
-                            cart:state.cart.map(product=>product.id===action.payload["id"]?{...product,quantity:product.quantity+1}:product),     
+                            cart:state.cart.map(product=>product.id===action.payload ? {...product,quantity:product.quantity+1} : product),     
                             wishlist:wishRemove
                             }
                 }
                 else{
                     return {
                             ...state,
-                            cart:[...state.cart,action.item],
+                            cart:[...state.cart,wishItem],
                             wishlist:wishRemove            
                             }
                 }

@@ -9,7 +9,7 @@ function Wish({items}) {
     const addToBasket=()=>{
         dispatch({
             type:'MOVE_TO_CART',
-            payload:items
+            payload:items.id
         })
     };
     return (
