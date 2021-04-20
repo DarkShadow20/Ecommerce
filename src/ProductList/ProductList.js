@@ -4,7 +4,7 @@ import "../css/ProductList.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery}) {
+function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,category}) {
     const [state,dispatch]=useCart();
     const addToBasket=()=>{
         dispatch({
@@ -46,25 +46,25 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery})
     }
     return (
         <>
-        <div class="card-collection-wrapper">
-	        <div class="card" >
-                <div class="img-header">
-                    <img class="card-img-top" src={image} alt="Card img cap" style={!inStock?{opacity:0.1}:{opacity:1}}/> 
+        <div className="card-collection-wrapper">
+	        <div className="card" >
+                <div className="img-header">
+                    <img className="card-img-top" src={image} alt="Card img cap" style={!inStock?{opacity:0.1}:{opacity:1}}/> 
                 </div>
                 {!inStock && <span className="out-of-stock-overlay">Out of Stock</span>}
-            <div class="card-body" >
-                <h5 class="card-title">{name}</h5>
-                    <p class="card-text">
-                        <div className="product__rating">
+            <div className="card-body" >
+                <h5 className="card-title">{name}</h5>
+                    <p className="card-text">
+                        <span className="product__rating">
                         {
                             Array(rating).fill().map((_)=>(
                                 <p>⭐</p>
                             ))
                         }
-                        </div>
+                        </span>
                     </p>
                 <span>
-                    <span class="strong-element">Rs.{price}</span>
+                    <span className="strong-element">Rs.{price}</span>
                 </span>
                 <div className="btn-toast">
                     <button className="btn btn-primary" onClick={()=>{

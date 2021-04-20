@@ -4,11 +4,23 @@ import "../css/Home.css";
 import faker from "faker";
 import { useCart } from '../context/CartContext'
 
+export const categories = [
+  "Racquet",
+  "Shuttle",
+  "String"
+];
+export const featuredCategories=[
+  {name:"Racquet",img:"https://www.yonex.com/media/catalog/category/Badminton-Racquets-Desktop.jpg"},
+  {name:"Shuttle",img:"https://www.yonex.com/media/catalog/category/Badminton-Shuttles-Desktop.jpg"},
+  {name:"String",img:"https://www.yonex.com/media/catalog/category/Badminton-Strings-Desktop.jpg"}
+]
+
 faker.seed(123);
 export const products = [...Array(50)].map((item) => ({
   id: faker.random.uuid(),
   name: faker.commerce.productName(),
   image: faker.random.image(),
+  category:faker.random.arrayElement([...categories]),
   price: faker.commerce.price(),
   material: faker.commerce.productMaterial(),
   brand: faker.lorem.word(),
@@ -43,13 +55,6 @@ export const products = [...Array(50)].map((item) => ({
 
 function Home() {
   const [state,dispatch]=useCart();
-  const getProductsUnderPrice = (products, priceRange) => {
-    if (priceRange) 
-    {
-      return products.filter((item) => item.price <= priceRange);
-    }
-    return products;
-  };
 
   const getSortedData = (products, sortBy) => {
     if (sortBy === "LOW_TO_HIGH")
@@ -63,20 +68,23 @@ function Home() {
     return products;
   };
 
-  const getFilteredData = (products, onlyFastDelivery,includeOutOfStock) => {
-    return products
+  const getFilteredData = (products, onlyFastDelivery,includeOutOfStock,filterByCategories) => {
+    let newData=[...products];
+    if(filterByCategories.length!==0){
+      newData=newData.filter((product)=>state.filterByCategories.includes(product.category))
+      console.log(newData)
+    }
+    return newData
       .filter((item) => (onlyFastDelivery ? item.fastDelivery : true))
-      .filter((item) => (includeOutOfStock ? true : item.inStock));
+      .filter((item) => (includeOutOfStock ? true : item.inStock))
   };
-
-  const priceRangeData = getProductsUnderPrice(products, state.priceRange);
-
-  const sortedData = getSortedData(priceRangeData, state.sortBy);
+  const sortedData = getSortedData(products, state.sortBy);
 
   const filteredData = getFilteredData(
     sortedData,
     state.onlyFastDelivery,
-    state.includeOutOfStock
+    state.includeOutOfStock,
+    state.filterByCategories
   );
     return (
         <div className="main-container">
@@ -113,6 +121,7 @@ function Home() {
                     rating={items.ratings}
                     inStock={items.inStock}
                     fastDelivery={items.fastDelivery}
+                    category={items.category}
                     />
                 ))}
               </div>  

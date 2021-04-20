@@ -39,7 +39,7 @@
     font-weight: 600;
     text-align: center;
     color: #FF3F6C;
-    background-color: #E6E6E6;
+    background-color: #fff;
     outline: none;
     border: none;
     cursor: pointer;
@@ -80,7 +80,6 @@
         font-weight: 600;
         text-align: center;
         color: #FF3F6C;
-        background-color: #E6E6E6;
         outline: none;
         border: none;
         cursor: pointer;

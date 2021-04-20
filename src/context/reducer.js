@@ -1,4 +1,3 @@
-
 export const initialState={
     cart:[{brand: "quo",
     color: "lime",
@@ -32,10 +31,12 @@ export const initialState={
     onlyFastDelivery: false,
     sortBy: null,
     priceRange: null,
-    isInWishList:false
+    isInWishList:false,
+    filterByCategories:[]
 }
 
 const reducer=(state=initialState,action)=>{
+    console.log(state.filterByCategories)
     switch(action.type){
         case "ADD_TO_CART":
             const existed_item= state.cart.find(item=> action.item["id"] === item.id)
@@ -131,13 +132,31 @@ const reducer=(state=initialState,action)=>{
                     onlyFastDelivery:!state.onlyFastDelivery
                 }
             case "RESET_FILTERS":
-                console.log("Hello")
                 return{
                     ...state,
                     sortBy:null,
                     includeOutOfStock:false,
                     onlyFastDelivery:false
                 }
+            case "SHOW_ALL":
+                state.filterByCategories=[];
+                return {...state};
+            case "FILTER_BY_CATEGORIES":
+                state.filterByCategories=[];
+                return state.filterByCategories.includes(action.payload)
+                ? {
+                    ...state,
+                      filterByCategories: state.filterByCategories.filter(
+                        (item) => item !== action.payload
+                      )
+                    
+                  }
+                : {
+                    ...state,
+                      filterByCategories: state.filterByCategories.concat(
+                        action.payload
+                      )
+                  };
         default:
             return state;
     }
