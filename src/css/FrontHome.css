@@ -28,8 +28,7 @@
 }
 
 .image-category{
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    position: relative;
     margin-bottom: 10rem;
 }
 .image-category img{
@@ -40,11 +39,11 @@ Link{
     margin-bottom: 1rem;
 }
 .category-img {
-    opacity: 0.2;
+    opacity: 0.4;
     width: 20%;
 }
 .overlay{
-    bottom: -29rem;
+    bottom: 4rem;
     font-weight: 600;
     font-size: 1.5rem;
     position: absolute;
@@ -59,42 +58,37 @@ Link{
 .overlay-String{
     right: 15rem;
 }
-
-@media only screen and (max-width:600px){
+@media only screen and (max-width:768px){
     .link{
-        top: 10rem;
+        top: 20%;
         left: 1rem;
-        font-size: 1rem;
+        font-size: 0.5rem;
     }
     .image-category{
-        display: flex;
-        flex-direction: row;
         margin-bottom: 0rem;
     }
     .category-img{
+        opacity: 0.5;
         width: 30%;
     }
     .image-category img{
-        margin-left: 8rem;
+        margin-left: 35%;
         cursor: pointer;
     }
     .overlay{
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        font-weight: 600;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     .overlay-Shuttle{
-        bottom: 19.5rem;
-        left: 10rem;
+        bottom: 46%;
+        left: 45%;
     }
     .overlay-Racquet{
-        bottom: 24rem;
-        left: 10rem;
+        top: 10%;
+        left: 45%;
     }
     .overlay-String{
-        bottom: 15.5rem;
-        left: 10.5rem;
+        bottom: 15%;
+        left: 45%;
     }
 }
+
