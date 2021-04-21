@@ -36,7 +36,6 @@ export const initialState={
 }
 
 const reducer=(state=initialState,action)=>{
-    console.log(state.filterByCategories)
     switch(action.type){
         case "ADD_TO_CART":
             const existed_item= state.cart.find(item=> action.item["id"] === item.id)
@@ -139,10 +138,11 @@ const reducer=(state=initialState,action)=>{
                     onlyFastDelivery:false
                 }
             case "SHOW_ALL":
+                console.log("inshowall",state.filterByCategories)
                 state.filterByCategories=[];
-                return {...state};
+                return {...state}
             case "FILTER_BY_CATEGORIES":
-                state.filterByCategories=[];
+                console.log("filterbycategory",state.filterByCategories)
                 return state.filterByCategories.includes(action.payload)
                 ? {
                     ...state,

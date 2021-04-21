@@ -53,7 +53,7 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,c
                 </div>
                 {!inStock && <span className="out-of-stock-overlay">Out of Stock</span>}
             <div className="card-body" >
-                <h5 className="card-title">{name}</h5>
+                <h5 className="card-title">{name}{category}</h5>
                     <p className="card-text">
                         <span className="product__rating">
                         {
