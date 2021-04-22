@@ -135,7 +135,8 @@ const reducer=(state=initialState,action)=>{
                     ...state,
                     sortBy:null,
                     includeOutOfStock:false,
-                    onlyFastDelivery:false
+                    onlyFastDelivery:false,
+                    filterByCategories:[]
                 }
             case "SHOW_ALL":
                 console.log("inshowall",state.filterByCategories)

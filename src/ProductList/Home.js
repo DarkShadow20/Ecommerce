@@ -107,6 +107,26 @@ function Home() {
             />
             fast delivery only
           </span>
+          <span className="prefer">Categories</span>
+          {categories.map((category) => {
+          return (
+              <span className="input-fields">
+                <input
+                  type="checkbox"
+                  checked={state.filterByCategories.includes(
+                    category
+                  )}
+                  onChange={() => {
+                    dispatch({
+                      type: "FILTER_BY_CATEGORIES",
+                      payload: category
+                    });
+                  }}
+                />
+                {category}
+              </span>
+          );
+        })}
           <button className="remove-filters" onClick={() => dispatch({type:"RESET_FILTERS"})}>
             Remove Filters
           </button>
