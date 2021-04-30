@@ -19,7 +19,7 @@ function WishList() {
                     <h2>Your WishList</h2>
                     <div className="card-collection-wrapper">
                     {wishlist.map((items)=>(
-                    <Wish items={items}/>
+                            <Wish items={items}/>
                     ))}
                     </div>
                 </>
@@ -27,7 +27,6 @@ function WishList() {
         </div>
     )
 }
-
 export default WishList
 
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import {ProductList} from '..'
 import "../css/Home.css";
-import faker from "faker";
 import { useCart } from '../context/CartContext'
 
 export const categories = [
@@ -15,47 +14,9 @@ export const featuredCategories=[
   {name:"String",img:"https://www.yonex.com/media/catalog/category/Badminton-Strings-Desktop.jpg"}
 ]
 
-faker.seed(123);
-export const products = [...Array(50)].map((item) => ({
-  id: faker.random.uuid(),
-  name: faker.commerce.productName(),
-  image: faker.random.image(),
-  category:faker.random.arrayElement([...categories]),
-  price: faker.commerce.price(),
-  material: faker.commerce.productMaterial(),
-  brand: faker.lorem.word(),
-  inStock: faker.random.boolean(),
-  fastDelivery: faker.random.boolean(),
-  quantity:faker.random.number({
-    'min': 1,
-    'max': 1
-}),
-  ratings: faker.random.arrayElement([1, 2, 3, 4, 5]),
-  offer: faker.random.arrayElement([
-    "Save 50",
-    "70% bonanza",
-    "Republic Day Sale"
-  ]),
-  idealFor: faker.random.arrayElement([
-    "Men",
-    "Women",
-    "Girl",
-    "Boy",
-    "Senior"
-  ]),
-  level: faker.random.arrayElement([
-    "beginner",
-    "amateur",
-    "intermediate",
-    "advanced",
-    "professional"
-  ]),
-  color: faker.commerce.color()
-}));
-
 function Home() {
   const [state,dispatch]=useCart();
-
+  const products = state.products[0]  
   const getSortedData = (products, sortBy) => {
     if (sortBy === "LOW_TO_HIGH")
     {
@@ -67,7 +28,6 @@ function Home() {
     }
     return products;
   };
-
   const getFilteredData = (products, onlyFastDelivery,includeOutOfStock,filterByCategories) => {
     let newData=[...products];
     if(filterByCategories.length!==0){
@@ -79,7 +39,6 @@ function Home() {
       .filter((item) => (includeOutOfStock ? true : item.inStock))
   };
   const sortedData = getSortedData(products, state.sortBy);
-
   const filteredData = getFilteredData(
     sortedData,
     state.onlyFastDelivery,
@@ -138,7 +97,7 @@ function Home() {
                     price={items.price}
                     image={items.image}
                     quantity={items.quantity}
-                    rating={items.ratings}
+                    rating={items.rating}
                     inStock={items.inStock}
                     fastDelivery={items.fastDelivery}
                     category={items.category}

@@ -3,10 +3,28 @@ import { useCart } from '../context/CartContext'
 import "../css/ProductList.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,category}) {
     const [state,dispatch]=useCart();
-    const addToBasket=()=>{
+    const addToBasket=async ()=>{
+        try{
+            const existedProduct=state.cart.find((product)=>product.id===id)
+            if(existedProduct){
+                const response=await axios.post(`https://Ecommerce.kunalgupta9.repl.co/cart/${id}`,{quantity:existedProduct.quantity+1})
+                if(response.status===201){
+                    console.log("did it quantity update")
+                }
+            }else{
+            const response= await axios.post("https://Ecommerce.kunalgupta9.repl.co/cart",{
+                id:id,name:name,price:price,image:image,quantity:quantity,rating:rating,inStock:inStock,fastDelivery:fastDelivery})
+                if(response.status===201){
+                    console.log("did it")
+                }
+            }
+        }catch(err){
+            console.log(err)
+        }
         dispatch({
             type:'ADD_TO_CART',
             item:{
@@ -20,7 +38,16 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,c
         })
         
     };
-    const addToWishlist=()=>{
+    const addToWishlist=async ()=>{
+        try{
+            const response= await axios.post("https://Ecommerce.kunalgupta9.repl.co/wishlist",{
+                id:id,name:name,price:price,image:image,quantity:quantity,rating:rating,inStock:inStock,fastDelivery:fastDelivery})
+            if(response.status===201){
+                console.log("Post req done")
+            }
+        }catch(err){
+            console.log("Soory",err)
+        }
         dispatch({
             type:'ADD_TO_WISHLIST',
             payload:{

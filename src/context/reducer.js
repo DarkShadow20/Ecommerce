@@ -1,32 +1,7 @@
 export const initialState={
-    cart:[{brand: "quo",
-    color: "lime",
-    fastDelivery: false,
-    id: "bb463b8b-b76c-4f6a-9726-65ab5730b69b",
-    idealFor: "Girl",
-    image: "http://placeimg.com/640/480/business",
-    inStock: true,
-    level: "advanced",
-    material: "Granite",
-    name: "Generic Concrete Table",
-    offer: "Republic Day Sale",
-    price: "84.00",
-    quantity: 1,
-    ratings: 2}],
-    wishlist:[{brand: "quo",
-    color: "lime",
-    fastDelivery: false,
-    id: "bb463b8b-b76c-4f6a-9726-65ab5730b69b",
-    idealFor: "Girl",
-    image: "http://placeimg.com/640/480/business",
-    inStock: true,
-    level: "advanced",
-    material: "Granite",
-    name: "Generic Concrete Table",
-    offer: "Republic Day Sale",
-    price: "84.00",
-    quantity: 1,
-    ratings: 2}],
+    products:[],
+    cart:[],
+    wishlist:[],
     includeOutOfStock: false,
     onlyFastDelivery: false,
     sortBy: null,
@@ -37,6 +12,12 @@ export const initialState={
 
 const reducer=(state=initialState,action)=>{
     switch(action.type){
+        case "GET_PRODUCT":
+            return {...state,products:[action.payload]}
+        case "GET_WISHLIST_ITEMS":
+            return {...state,wishlist:action.payload}
+        case "GET_CART_ITEMS":
+            return{...state,cart:action.payload}
         case "ADD_TO_CART":
             const existed_item= state.cart.find(item=> action.item["id"] === item.id)
             if(existed_item)
@@ -139,11 +120,9 @@ const reducer=(state=initialState,action)=>{
                     filterByCategories:[]
                 }
             case "SHOW_ALL":
-                console.log("inshowall",state.filterByCategories)
                 state.filterByCategories=[];
                 return {...state}
             case "FILTER_BY_CATEGORIES":
-                console.log("filterbycategory",state.filterByCategories)
                 return state.filterByCategories.includes(action.payload)
                 ? {
                     ...state,

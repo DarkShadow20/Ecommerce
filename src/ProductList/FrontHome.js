@@ -1,5 +1,6 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import {Link} from 'react-router-dom';
+import axios from "axios";
 import { useCart } from '../context/CartContext';
 import "../css/FrontHome.css";
 import {featuredCategories} from "../ProductList/Home";
@@ -7,6 +8,46 @@ import {featuredCategories} from "../ProductList/Home";
 function FrontHome() {
     //eslint-disable-next-line
     const [state,dispatch]=useCart();
+    const [errMsg,setErrMsg]=useState();
+
+    useEffect(()=>{
+    (async function (){
+      try{
+        const response=await axios.get("https://Ecommerce.kunalgupta9.repl.co/products");
+        dispatch({type:"GET_PRODUCT", payload:response.data})
+      }catch(err){
+        setErrMsg("Failed to load data");
+        console.log(errMsg);
+      }
+    })();
+    (async function () {
+        try {
+          const response = await axios.get(
+            "https://Ecommerce.kunalgupta9.repl.co/wishlist"
+          );
+          dispatch({
+            type: "GET_WISHLIST_ITEMS",
+            payload: response.data 
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      })();
+    (async function () {
+        try {
+          const response = await axios.get(
+            "https://Ecommerce.kunalgupta9.repl.co/cart"
+          );
+          dispatch({
+            type: "GET_CART_ITEMS",
+            payload: response.data
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      })();
+      //eslint-disable-next-line
+  },[])
     return (
         <>
         <div>

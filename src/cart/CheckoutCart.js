@@ -1,24 +1,50 @@
+import axios from 'axios';
 import React from 'react'
 import { useCart } from '../context/CartContext'
 import "../css/CheckoutCart.css";
 
+
 function CheckoutCart({item}) {
     //eslint-disable-next-line
     const [state,dispatch]=useCart();
-    
-    const removeFromCart=()=>{
+    console.log(item)
+    const removeFromCart=async ()=>{
+        try{
+            const response=await axios.delete(`https://Ecommerce.kunalgupta9.repl.co/cart/${item.id}`)
+            if(response.status===201){
+                console.log("Deleted successfully")
+            }
+        }catch(err){
+            console.log(err)
+        }
         dispatch({
             type:'REMOVE_FROM_CART',
             id:item.id
         })
     }
-    const addQuantity=()=>{
+    const addQuantity= async ()=>{
+        try{
+            const response=await axios.post(`https://Ecommerce.kunalgupta9.repl.co/cart/${item.id}`,{quantity:item.quantity+1})
+            if(response.status===201){
+                console.log("Updated quantity")
+            }
+        }catch(err){
+            console.log(err)
+        }
         dispatch({
             type:'ADD_QUANTITY',
             id:item.id
         })
     }
-    const subtractQuantity = () => {
+    const subtractQuantity = async () => {
+        try{
+            const response=await axios.post(`https://Ecommerce.kunalgupta9.repl.co/cart/${item.id}`,{quantity:item.quantity-1})
+            if(response.status===201){
+                console.log("Updated quantity")
+            }
+        }catch(err){
+            console.log(err)
+        }
         dispatch( {
           type: 'SUB_QUANTITY',
           id:item.id,
@@ -46,7 +72,7 @@ function CheckoutCart({item}) {
                 <div className="checkoutCart-quantity">
                     <button className="btn btn-primary" onClick={addQuantity} >+</button>
                      <span className="quantity">{item.quantity}</span>
-                     <button className="btn btn-primary" onClick={subtractQuantity} >-</button>
+                {item.quantity>1 ? <button className="btn btn-primary" onClick={subtractQuantity} >-</button>:<button className="btn btn-primary" onClick={removeFromCart}><i class="fa fa-trash"></i></button>}
                  </div>
                  <button className="btn btn-primary" onClick={removeFromCart}>Remove From Cart</button>
              </div>
