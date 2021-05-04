@@ -7,7 +7,6 @@ import "../css/CheckoutCart.css";
 function CheckoutCart({item}) {
     //eslint-disable-next-line
     const [state,dispatch]=useCart();
-    console.log(item)
     const removeFromCart=async ()=>{
         try{
             const response=await axios.delete(`https://Ecommerce.kunalgupta9.repl.co/cart/${item.id}`)
