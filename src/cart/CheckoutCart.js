@@ -71,7 +71,7 @@ function CheckoutCart({item}) {
                 <div className="checkoutCart-quantity">
                     <button className="btn btn-primary" onClick={addQuantity} >+</button>
                      <span className="quantity">{item.quantity}</span>
-                {item.quantity>1 ? <button className="btn btn-primary" onClick={subtractQuantity} >-</button>:<button className="btn btn-primary" onClick={removeFromCart}><i class="fa fa-trash"></i></button>}
+                {item.quantity>1 ? <button className="btn btn-primary" onClick={subtractQuantity} >-</button>:<button className="btn btn-primary" onClick={removeFromCart}><i className="fa fa-trash"></i></button>}
                  </div>
                  <button className="btn btn-primary" onClick={removeFromCart}>Remove From Cart</button>
              </div>
