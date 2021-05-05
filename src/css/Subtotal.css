@@ -1,0 +1,22 @@
+@import url("https://nueui-v1.netlify.app/main.css");
+:root{
+    --border-color:#BFBFBF;
+}
+.subtotal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    height: 10rem;
+    padding: 1rem;
+}
+.btn-primary{
+    color: #fff;
+    text-decoration: none;
+}
+@media only screen and (max-width: 600px){
+    .subtotal{
+        margin-left: -1rem;
+        margin-right: 1rem;
+    }
+}

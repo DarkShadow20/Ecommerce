@@ -1,0 +1,37 @@
+@import url("https://nueui-v1.netlify.app/main.css");
+.card-collection-wrapper{
+    margin-left: 0.2rem;
+}
+.card{
+    margin-bottom: 0.5rem;
+    padding: 0rem;
+}
+.product__rating{
+    display: flex;
+    font-size: small;
+}
+
+.btn-toast>.btn-primary{
+    width: 12rem;
+}
+.out-of-stock-overlay{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    color: red;
+    font-size: large;
+    font-weight: 700;
+    opacity:1;
+    z-index: 1;
+}
+@media only screen and (max-width: 600px){
+    .card-collection-wrapper{
+        margin-bottom: 0;
+    }
+    .card-collection-wrappers{
+        border: 0;
+    }
+    .card{
+        margin-bottom: 0;
+    }
+}

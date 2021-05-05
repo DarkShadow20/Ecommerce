@@ -1,0 +1,22 @@
+:root{
+    --close-color:red;
+}
+
+.wish-empty-text{
+    margin-left: 1.2rem;
+}
+.card-collection-wrapper{
+    justify-content: flex-start;
+    margin-left: 1rem;
+}
+.card{
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+.card-close{
+    cursor: pointer;
+    color: var(--close-color);
+}
+.checkoutCart_rating{
+    display: flex;
+}
