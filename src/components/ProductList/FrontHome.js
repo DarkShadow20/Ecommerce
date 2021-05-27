@@ -52,7 +52,7 @@ function FrontHome() {
         <>
         <div>
             <img src="https://www.yonex.com/media/scandiweb/slider/2/8/2880x1800_homepage_06vcore_20210223_.jpg" alt="icon" className="home-icon"/>
-            <Link to="/home" className="btn-link"><button className="link" onClick={()=>{dispatch({
+            <Link to="/products" className="btn-link"><button className="link" onClick={()=>{dispatch({
                 type:"SHOW_ALL",
             })}}>Shop Now</button></Link>
         </div>
