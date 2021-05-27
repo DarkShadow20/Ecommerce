@@ -1,8 +1,8 @@
 import React from 'react'
-import { useCart } from '../context/CartContext';
-import "../css/CheckoutCart.css";
-import "../css/WishList.css";
-import {Wish} from "..";
+import { useCart } from '../../context/CartContext';
+import "../../css/CheckoutCart.css";
+import "../../css/WishList.css";
+import {Wish} from "../../components";
 
 function WishList() {
     const [{wishlist}]=useCart();

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react'
-import { useCart } from '../context/CartContext'
-import "../css/CheckoutCart.css";
+import { useCart } from '../../context/CartContext'
+import "../../css/CheckoutCart.css";
 
 
 function CheckoutCart({item}) {

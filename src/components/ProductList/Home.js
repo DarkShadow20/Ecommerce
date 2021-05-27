@@ -1,7 +1,7 @@
 import React from 'react'
-import {ProductList} from '..'
-import "../css/Home.css";
-import { useCart } from '../context/CartContext'
+import {ProductList} from '../../components';
+import "../../css/Home.css";
+import { useCart } from '../../context/CartContext'
 
 export const categories = [
   "Racquet",

@@ -1,8 +1,8 @@
 import React,{useEffect,useState} from 'react'
 import {Link} from 'react-router-dom';
 import axios from "axios";
-import { useCart } from '../context/CartContext';
-import "../css/FrontHome.css";
+import { useCart } from '../../context/CartContext';
+import "../../css/FrontHome.css";
 import {featuredCategories} from "../ProductList/Home";
 
 function FrontHome() {

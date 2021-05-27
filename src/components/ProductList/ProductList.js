@@ -1,6 +1,6 @@
 import React from 'react'
-import { useCart } from '../context/CartContext'
-import "../css/ProductList.css";
+import { useCart } from '../../context/CartContext';
+import "../../css/ProductList.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';

@@ -1,6 +1,6 @@
 import React from 'react'
-import "../css/WishList.css";
-import { useCart } from '../context/CartContext'
+import "../../css/WishList.css";
+import { useCart } from '../../context/CartContext'
 import axios from "axios";
 
 function Wish({items}) {

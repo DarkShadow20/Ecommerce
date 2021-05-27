@@ -1,6 +1,6 @@
 import React from 'react';
-import { useCart } from '../context/CartContext';
-import '../css/Subtotal.css';
+import { useCart } from '../../context/CartContext';
+import '../../css/Subtotal.css';
 
 function Subtotal() {
     const[{cart}]=useCart();

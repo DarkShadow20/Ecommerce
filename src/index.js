@@ -3,21 +3,19 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 import App from './App';
 import { CartProvider } from './context/CartContext';
-import reducer,{ initialState } from './context/reducer';
+import reducer,{ initialState } from './context/cart-reducer';
 import {BrowserRouter as Router } from "react-router-dom";
-
-export {default as Wish} from "./Wishlist/Wish";
-export {default as CheckoutCart} from "./cart/CheckoutCart";
-export {default as ShoppingBasketIcon} from "@material-ui/icons/ShoppingBasket";
-export {default as ProductList} from "./ProductList/ProductList"
+import { AuthProvider } from './context/AuthContext';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <CartProvider initialState={initialState} reducer={reducer}>
-        <App />
+      <AuthProvider>
+        <CartProvider initialState={initialState} reducer={reducer}>
+          <App />
         </CartProvider>
+      </AuthProvider>
       </Router>
   </React.StrictMode>,
   document.getElementById('root')

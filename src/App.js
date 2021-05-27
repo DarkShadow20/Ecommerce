@@ -1,20 +1,20 @@
 import "./App.css";
 import { Routes,Route} from "react-router-dom";
-import Header from "./ProductList/Header";
-import Home from "./ProductList/Home";
-import Cart from "./cart/Cart";
-import WishList from "./Wishlist/WishList";
-import FrontHome from "./ProductList/FrontHome";
+import {Header,Home,WishList,Cart, PrivateRoute} from "./components";
+import FrontHome from "./components/ProductList/FrontHome";
+import { Login, SignUp } from "./components";
 
 function App() {
   return (
       <div className="App">
       <Header/>
         <Routes>
-          <Route path="/wishlist" element={<WishList/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route exact path="/home" element={<Home/>}/>
-          <Route exact path="/" element={<FrontHome/>}/>
+          <PrivateRoute path="/wishlist" element={<WishList/>}/>
+          <PrivateRoute path="/cart" element={<Cart/>}/>
+          <Route path="/products" element={<Home/>}/>
+          <Route path="/" element={<FrontHome/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/signup" element={<SignUp/>}/>
         </Routes>
       </div>
   );
