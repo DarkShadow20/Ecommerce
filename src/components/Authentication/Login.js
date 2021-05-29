@@ -18,7 +18,7 @@ export const Login = () => {
     if (validateUserInput({ email }).checkEmail) {
       setError("");
       axios
-        .post("https://Ecommerce.kunalgupta9.repl.co/users/login", {
+        .post("https://Ecom.kunalgupta9.repl.co/users/login", {
           email,
           password
         })

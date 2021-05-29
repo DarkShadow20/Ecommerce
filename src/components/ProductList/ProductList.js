@@ -4,9 +4,12 @@ import "../../css/ProductList.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,category}) {
     const [state,dispatch]=useCart();
+    const {userData}=useAuth();
     const addToBasket=async ()=>{
         try{
             const existedProduct=state.cart.find((product)=>product.id===id)
@@ -40,8 +43,7 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,c
     };
     const addToWishlist=async ()=>{
         try{
-            const response= await axios.post("https://Ecommerce.kunalgupta9.repl.co/wishlist",{
-                id:id,name:name,price:price,image:image,quantity:quantity,rating:rating,inStock:inStock,fastDelivery:fastDelivery})
+            const response= await axios.post(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`,{_id:id})
             if(response.status===201){
                 console.log("Post req done")
             }
@@ -65,7 +67,15 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,c
     const notifyForCart=()=>{toast.success("Added To Cart",{position:toast.POSITION.BOTTOM_RIGHT})}
     const notifyForWishlist=()=>{toast.success("Added to Wishlist",{position:toast.POSITION.BOTTOM_RIGHT})}
     const notifyForRemovalWishlist=()=>{toast.info("Removed from wishlist",{position:toast.POSITION.BOTTOM_RIGHT})}
-    const removefromWishList=()=>{
+    const removefromWishList=async ()=>{
+        try{
+            const response= await axios.post(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`,{_id:id})
+            if(response.status===201){
+                console.log("Post req done")
+            }
+        }catch(err){
+            console.log("Soory",err)
+        }
         dispatch({
             type:'TOGGLE_REMOVE_FROM_WISHLIST',
             payload:id
@@ -94,9 +104,12 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,c
                     <span className="strong-element">Rs.{price}</span>
                 </span>
                 <div className="btn-toast">
-                    <button className="btn btn-primary" onClick={()=>{
+                {state.cart.find((item)=>item.id===id)?(
+                <Link to="/cart"><button className="btn btn-primary" style={{width:"90%"}} >Go to Cart</button></Link>)
+                :
+                (<button className="btn btn-primary" onClick={()=>{
                         addToBasket();
-                        notifyForCart();}} disabled={!inStock} style={!inStock?{opacity:0.1}:{opacity:1}}>Add to Cart</button> 
+                        notifyForCart();}} disabled={!inStock} style={!inStock?{opacity:0.1}:{opacity:1}}>Add to Cart</button> )}
                     <ToastContainer/>
                 </div>
             {state.wishlist.find((items)=>items.id===id)?(<button className="btn btn-primary" onClick={()=>{removefromWishList();notifyForRemovalWishlist()}}>Remove from Wishlist</button>):(<button className="btn btn-primary" onClick={()=>{addToWishlist();notifyForWishlist();}}>Add to Wishlist</button>)}

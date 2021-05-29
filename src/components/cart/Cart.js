@@ -1,11 +1,32 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { useCart } from '../../context/CartContext'
 import {CheckoutCart} from "..";
 import "../../css/Cart.css";
 import Subtotal from "../cart/Subtotal";
+import { useAuth } from '../../context/AuthContext';
+import axios from "axios";
 
 function Cart() {
     const [{cart}]=useCart();
+    //eslint-disable-next-line
+    const [state,dispatch]=useCart();
+    const {userData}=useAuth();
+    useEffect(()=>{
+        (async function(){
+            try{
+                const response=await axios.get(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`)
+                console.log(response.data.cart)
+                dispatch({
+                    type: "GET_CART_ITEMS",
+                    payload: response.data.cart
+                  });
+            }
+            catch(err){
+                console.log(err)
+            }
+        })()
+        //eslint-disable-next-line
+    },[])
     return (
         <div className="cart-container">
             <div className="cart-container-left">

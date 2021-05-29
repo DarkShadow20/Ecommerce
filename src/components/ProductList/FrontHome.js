@@ -13,39 +13,13 @@ function FrontHome() {
     useEffect(()=>{
     (async function (){
       try{
-        const response=await axios.get("https://Ecommerce.kunalgupta9.repl.co/products");
-        dispatch({type:"GET_PRODUCT", payload:response.data})
+        const response=await axios.get("https://Ecom.kunalgupta9.repl.co/products");
+        dispatch({type:"GET_PRODUCT", payload:response.data.products})
       }catch(err){
         setErrMsg("Failed to load data");
         console.log(errMsg);
       }
     })();
-    (async function () {
-        try {
-          const response = await axios.get(
-            "https://Ecommerce.kunalgupta9.repl.co/wishlist"
-          );
-          dispatch({
-            type: "GET_WISHLIST_ITEMS",
-            payload: response.data 
-          });
-        } catch (err) {
-          console.log(err);
-        }
-      })();
-    (async function () {
-        try {
-          const response = await axios.get(
-            "https://Ecommerce.kunalgupta9.repl.co/cart"
-          );
-          dispatch({
-            type: "GET_CART_ITEMS",
-            payload: response.data
-          });
-        } catch (err) {
-          console.log(err);
-        }
-      })();
       //eslint-disable-next-line
   },[])
     return (

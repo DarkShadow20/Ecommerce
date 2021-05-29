@@ -33,7 +33,7 @@ export const SignUp = () => {
     ) {
       setError("");
       axios
-        .post("https://Ecommerce.kunalgupta9.repl.co/users/signup", {
+        .post("https://Ecom.kunalgupta9.repl.co/users/signup", {
           email: newEmail,
           password: newPassword,
           name: newName
