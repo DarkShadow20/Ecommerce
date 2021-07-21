@@ -14,13 +14,12 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,c
         try{
             const existedProduct=state.cart.find((product)=>product.id===id)
             if(existedProduct){
-                const response=await axios.post(`https://Ecommerce.kunalgupta9.repl.co/cart/${id}`,{quantity:existedProduct.quantity+1})
+                const response=await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:id,action:"ADD"})
                 if(response.status===201){
                     console.log("did it quantity update")
                 }
             }else{
-            const response= await axios.post("https://Ecommerce.kunalgupta9.repl.co/cart",{
-                id:id,name:name,price:price,image:image,quantity:quantity,rating:rating,inStock:inStock,fastDelivery:fastDelivery})
+            const response= await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:id,action:"ADD"})
                 if(response.status===201){
                     console.log("did it")
                 }

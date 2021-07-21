@@ -68,7 +68,7 @@ function CheckoutCart({item}) {
                         </div>
                     </p>
                 <span>
-                    <span class="strong-element">Rs.{item.price}</span>
+                    <span className="strong-element">Rs.{item.price}</span>
                 </span>
                 <div className="checkoutCart-quantity">
                     <button className="btn btn-primary" onClick={addQuantity} >+</button>

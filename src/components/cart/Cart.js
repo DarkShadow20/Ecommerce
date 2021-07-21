@@ -27,6 +27,7 @@ function Cart() {
         })()
         //eslint-disable-next-line
     },[])
+    console.log(cart)
     return (
         <div className="cart-container">
             <div className="cart-container-left">
@@ -39,7 +40,7 @@ function Cart() {
                 <div>
                     <h2>Your Shopping Cart</h2>
                     <div className="card-collection-wrappers">
-                    {cart.map(item=>(
+                    {cart?.map(item=>(
                         <CheckoutCart 
                         item={item}
                         />
