@@ -38,7 +38,7 @@ function FrontHome() {
                 {featuredCategories.map((category)=>{
                     return(
                         <>
-                       <Link to="/home"><img src={category.img} className="category-img"  alt="" onClick={()=>{
+                       <Link to="/products"><img src={category.img} className="category-img"  alt="" onClick={()=>{
                             dispatch({
                                 type:"FILTER_BY_CATEGORIES",
                                 payload:category.name
