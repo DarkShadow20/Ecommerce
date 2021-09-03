@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useCart } from "../../context/CartContext";
 import "../../css/FrontHome.css";
-import { featuredCategories } from "../ProductList/Home";
 import Loader from "react-loader-spinner";
 
 function FrontHome() {
@@ -54,35 +53,6 @@ function FrontHome() {
                 Shop Now
               </button>
             </Link>
-          </div>
-          <div className="categories">
-            <section className="title">
-              <p>Categories</p>
-            </section>
-            <section className="image-category">
-              {featuredCategories.map((category) => {
-                return (
-                  <>
-                    <Link to="/products">
-                      <img
-                        src={category.img}
-                        className="category-img"
-                        alt=""
-                        onClick={() => {
-                          dispatch({
-                            type: "FILTER_BY_CATEGORIES",
-                            payload: category.name,
-                          });
-                        }}
-                      />
-                      <span className={`overlay overlay-${category.name}`}>
-                        {category.name}
-                      </span>
-                    </Link>
-                  </>
-                );
-              })}
-            </section>
           </div>
         </>
       )}
