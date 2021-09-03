@@ -1,11 +1,11 @@
 import React from 'react';
+import ReactDOM from "react-dom"
 import { useCart } from '../../context/CartContext';
 import '../../css/Subtotal.css';
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
-const CLIENT_ID = process.env.REACT_APP_CLIENTID;
 
+const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
 function Subtotal({setIsOrderPlaced}) {
     const[{cart}]=useCart();
@@ -17,7 +17,7 @@ function Subtotal({setIsOrderPlaced}) {
     let subTotalItems=quantityArr.reduce(reducer)
     let subTotalPriceArr=cart.map(item=>item.quantity*item.price)
     let price=subTotalPriceArr.reduce(reducer,0)
-    
+
     function createOrderOnBtnClick(data, actions) {
         return actions.order.create({
           purchase_units: [
@@ -53,14 +53,12 @@ function Subtotal({setIsOrderPlaced}) {
             <p>
                 Subtotal ({subTotalItems} items):<strong>Rs.{price}</strong>
             </p>
-            <PayPalScriptProvider options={{ "client-id": CLIENT_ID }}>
-      <PayPalButtons
+      <PayPalButton
         style={{ layout: "horizontal", color: "silver", tagline: false }}
         createOrder={createOrderOnBtnClick}
         onApprove={paymentSuccess}
         onError={paymentFailure}
       />
-    </PayPalScriptProvider>
         </div>
     )
 }
