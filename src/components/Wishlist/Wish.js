@@ -12,14 +12,14 @@ function Wish({items}) {
         try{
             const existedProduct=state.cart.find((product)=>product.id===items.id)
             if(existedProduct){
-                const response=await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/cart/${userData?._id}`,{_id:items.id,action:"ADD"})
+                const response=await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:items.id,action:"ADD"})
                 if(response.status===200){
-                    await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/wishlists/${userData?._id}`,{_id:items.id})
+                    await axios.post(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`,{_id:items.id})
                 }
             }else{
-            const response= await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/cart/${userData?._id}`,{_id:items.id,action:"ADD"})
+            const response= await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:items.id,action:"ADD"})
                 if(response.status===201){
-                    await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/wishlists/${userData?._id}`,{_id:items.id})
+                    await axios.post(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`,{_id:items.id})
                 }
             }
         }catch(err){
@@ -32,7 +32,7 @@ function Wish({items}) {
     };
     const removefromWishList=async ()=>{
         try{
-            const response= await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/wishlists/${userData?._id}`,{_id:items.id})
+            const response= await axios.post(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`,{_id:items.id})
             if(response.status===200){
                 console.log("Delete req done successfully",response)
             }

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React from 'react'
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext'
 import "../../css/CheckoutCart.css";
@@ -11,7 +10,7 @@ function CheckoutCart({item}) {
     const {userData}=useAuth();
     const removeFromCart=async ()=>{
         try{
-            const response=await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/cart/${userData?._id}`,{_id:item.id,action:"MOVE"})
+            const response=await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:item.id,action:"MOVE"})
             if(response.status===201){
                 console.log("Deleted successfully")
             }
@@ -25,7 +24,7 @@ function CheckoutCart({item}) {
     }
     const addQuantity= async ()=>{
         try{
-            const response=await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/cart/${userData?._id}`,{_id:item.id,action:"ADD"})
+            const response=await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:item.id,action:"ADD"})
             if(response.status===201){
                 console.log("Updated quantity")
             }
@@ -39,7 +38,7 @@ function CheckoutCart({item}) {
     }
     const subtractQuantity = async () => {
         try{
-            const response=await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/cart/${userData?._id}`,{_id:item.id,action:"REMOVE"})
+            const response=await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:item.id,action:"REMOVE"})
             if(response.status===201){
                 console.log("Updated quantity")
             }

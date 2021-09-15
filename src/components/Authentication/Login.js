@@ -13,7 +13,7 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [togglePassword, setTogglePassword] = useState(true);
-
+  const [loading,setLoading]=useState(false);
   const guestUserHandler=(e)=>{
     setEmail("ram@gmail.com")
     setPassword("Lolo@123")
@@ -23,8 +23,9 @@ export const Login = () => {
     try{
       if (validateUserInput({ email }).checkEmail) {
         setError("");
+        setLoading(true)
         axios
-          .post("https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/users/login", {
+          .post("https://Ecom.kunalgupta9.repl.co/users/login", {
             email,
             password
           })
@@ -33,6 +34,7 @@ export const Login = () => {
               setError("Email or password didn't match!");
             }
             setLogin(res.data.success);
+            setLoading(false)
             if (res.data.success) {
               setUserData(res.data.user)
               navigate(location?.state?.from ? location.state.from : "/");
@@ -98,7 +100,7 @@ export const Login = () => {
           Sign up
         </Link>
       </button>
-      <button onClick={loginBtnHandler} style={{cursor:"pointer"}}>Login</button>
+      <button onClick={loginBtnHandler} style={{cursor:"pointer"}}>{loading?<>Loading...</>:<>Login</>}</button>
       <br/>
       <button style={{marginLeft:"1rem",width:"10rem", cursor:"pointer"}} onClick={guestUserHandler}>Login as GuestUser</button>
     </div>

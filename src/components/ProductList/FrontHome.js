@@ -15,7 +15,7 @@ function FrontHome() {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/products"
+          "https://Ecom.kunalgupta9.repl.co/products"
         );
         dispatch({ type: "GET_PRODUCT", payload: response.data.products });
         setLoading(false);
