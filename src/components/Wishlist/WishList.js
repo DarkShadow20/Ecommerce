@@ -17,7 +17,7 @@ function WishList() {
         (async function(){
             try{
                 setLoading(true)
-                const response=await axios.get(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`)
+                const response=await axios.get(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/wishlists/${userData?._id}`)
                 dispatch({
                     type: "GET_WISHLIST_ITEMS",
                     payload: response.data.wishlistItems

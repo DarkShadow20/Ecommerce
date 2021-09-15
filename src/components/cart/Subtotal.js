@@ -33,7 +33,7 @@ function Subtotal({setIsOrderPlaced}) {
         await actions.order.capture();
         setIsOrderPlaced(true)
         try{
-            const response=await axios.delete(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`)
+            const response=await axios.delete(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/cart/${userData?._id}`)
             if(response.status===201){
                 dispatch({
                     type:'GET_CART_ITEMS',

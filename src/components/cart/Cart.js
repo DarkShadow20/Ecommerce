@@ -19,7 +19,7 @@ function Cart() {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`
+          `https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/cart/${userData?._id}`
         );
         dispatch({
           type: "GET_CART_ITEMS",

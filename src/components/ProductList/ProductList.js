@@ -14,12 +14,12 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,c
         try{
             const existedProduct=state.cart.find((product)=>product.id===id)
             if(existedProduct){
-                const response=await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:id,action:"ADD"})
+                const response=await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/cart/${userData?._id}`,{_id:id,action:"ADD"})
                 if(response.status===201){
                     console.log("did it quantity update")
                 }
             }else{
-            const response= await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:id,action:"ADD"})
+            const response= await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/cart/${userData?._id}`,{_id:id,action:"ADD"})
                 if(response.status===201){
                     console.log("did it")
                 }
@@ -42,7 +42,7 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,c
     };
     const addToWishlist=async ()=>{
         try{
-            const response= await axios.post(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`,{_id:id})
+            const response= await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/wishlists/${userData?._id}`,{_id:id})
             if(response.status===201){
                 console.log("Post req done")
             }
@@ -68,7 +68,7 @@ function ProductList({id,name,price,image,quantity,rating,inStock,fastDelivery,c
     const notifyForRemovalWishlist=()=>{toast.info("Removed from wishlist",{position:toast.POSITION.BOTTOM_RIGHT})}
     const removefromWishList=async ()=>{
         try{
-            const response= await axios.post(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`,{_id:id})
+            const response= await axios.post(`https://4476efe4-fb5e-4281-8701-eb43a60b186d.id.repl.co/wishlists/${userData?._id}`,{_id:id})
             if(response.status===201){
                 console.log("Post req done")
             }
