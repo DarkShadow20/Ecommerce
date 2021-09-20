@@ -10,4 +10,4 @@
 - Wishlist management
 - Cart management
 
-*Frontend uses React and Backend done using Express,MongoDb & Mongoose*
+*Frontend uses React, [NueUI CSS Library](https://nueui-v1.netlify.app/) and Backend done using Express,MongoDb & Mongoose*
