@@ -12,7 +12,7 @@
     width: 100%;
 }
 .header__logo{
-    width: 100px;
+    width: 90px;
     color: var(--logo-color);
     margin-left: 1.2rem;
     margin-right: 1.2rem;
@@ -55,5 +55,16 @@
     }
     .header__nav{
         width: 80%;
+    }
+    .header__logo{
+        margin:0 0.5rem;
+    }
+    .option{
+        font-size:0.6rem;
+        margin-left: 0rem;
+        margin-right: 0.8rem;
+    }
+    .header__option button{
+        font-size:0.6rem;
     }
 }

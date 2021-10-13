@@ -16,7 +16,7 @@ function Header() {
     return (
         <nav className="header">
             <Link to="/" style={{textDecoration:"none"}}>
-                <h1 className="header__logo">Nile</h1>
+                <h2 className="header__logo">Nile</h2>
             </Link>
             <div className="header__nav">
                 <Link to="/products" className="header__link">
@@ -63,7 +63,7 @@ function Header() {
                                         navigate("/signup");
                                       }}
                                     >
-                                      <div>Sign up</div>
+                                      <span>Sign up</span>
                                     </button>
                                   </>
                                 )}
