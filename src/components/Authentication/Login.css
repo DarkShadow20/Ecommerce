@@ -21,6 +21,9 @@
 .login-inputWrapper {
     margin: 2rem 0 0 0rem;    
   }
+  .login-errorPrompt{
+    color:red;
+  }
 .login-inputWrapper input {
     display: block;
     padding: 0.2rem;

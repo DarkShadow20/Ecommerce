@@ -20,8 +20,7 @@ export const Login = () => {
   }
   const loginBtnHandler = async (e) => {
     e.preventDefault();
-    try{
-      if (validateUserInput({ email }).checkEmail) {
+    if (validateUserInput({ email }).checkEmail) {
         setError("");
         setLoading(true)
         axios
@@ -40,14 +39,12 @@ export const Login = () => {
               navigate(location?.state?.from ? location.state.from : "/");
             }
             setUserName(res.data.name);
-          });
+          }).catch(()=>{
+            setLoading(false)
+            setError("Something wrong with email");
+          })
       }
-    }
-     catch(err) {
-      setError("Enter valid email!");
-    }
   };
-
   return (
     <>
     <form onSubmit={loginBtnHandler}>
