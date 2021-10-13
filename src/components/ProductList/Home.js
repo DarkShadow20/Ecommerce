@@ -1,7 +1,8 @@
 import React from 'react'
-import {ProductList} from '..'
-import "../css/Home.css";
-import { useCart } from '../context/CartContext'
+import {ProductList} from '../../components';
+import "../../css/Home.css";
+import { useCart } from '../../context/CartContext'
+import { Navigate } from 'react-router-dom';
 
 export const categories = [
   "Racquet",
@@ -17,6 +18,11 @@ export const featuredCategories=[
 function Home() {
   const [state,dispatch]=useCart();
   const products = state.products[0]  
+  if(!products){
+    return(<>
+      <Navigate to = "/"/>
+      </>)
+  }
   const getSortedData = (products, sortBy) => {
     if (sortBy === "LOW_TO_HIGH")
     {

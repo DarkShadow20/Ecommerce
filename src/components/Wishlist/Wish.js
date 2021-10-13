@@ -1,24 +1,25 @@
 import React from 'react'
-import "../css/WishList.css";
-import { useCart } from '../context/CartContext'
+import "../../css/WishList.css";
+import { useCart } from '../../context/CartContext'
 import axios from "axios";
+import { useAuth } from '../../context/AuthContext';
 
 function Wish({items}) {
     //eslint-disable-next-line
     const [state,dispatch]=useCart();
+    const {userData}=useAuth();
     const addToBasket=async ()=>{
         try{
             const existedProduct=state.cart.find((product)=>product.id===items.id)
             if(existedProduct){
-                const response=await axios.post(`https://Ecommerce.kunalgupta9.repl.co/cart/${items.id}`,{quantity:existedProduct.quantity+1})
-                if(response.status===201){
-                    await axios.delete(`https://Ecommerce.kunalgupta9.repl.co/wishlist/${items.id}`)
+                const response=await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:items.id,action:"ADD"})
+                if(response.status===200){
+                    await axios.post(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`,{_id:items.id})
                 }
             }else{
-            const response= await axios.post("https://Ecommerce.kunalgupta9.repl.co/cart",{
-                id:items.id,name:items.name,price:items.price,image:items.image,quantity:items.quantity,rating:items.rating,inStock:items.inStock,fastDelivery:items.fastDelivery})
+            const response= await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:items.id,action:"ADD"})
                 if(response.status===201){
-                    await axios.delete(`https://Ecommerce.kunalgupta9.repl.co/wishlist/${items.id}`)
+                    await axios.post(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`,{_id:items.id})
                 }
             }
         }catch(err){
@@ -31,8 +32,8 @@ function Wish({items}) {
     };
     const removefromWishList=async ()=>{
         try{
-            const response= await axios.delete(`https://Ecommerce.kunalgupta9.repl.co/wishlist/${items.id}`)
-            if(response.status===204){
+            const response= await axios.post(`https://Ecom.kunalgupta9.repl.co/wishlists/${userData?._id}`,{_id:items.id})
+            if(response.status===200){
                 console.log("Delete req done successfully",response)
             }
         }catch(err){

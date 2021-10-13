@@ -137,6 +137,12 @@ const reducer=(state=initialState,action)=>{
                         action.payload
                       )
                   };
+            case "LOGOUT":
+                return {
+                    ...state,
+                    cart:[],
+                    wishlist:[]
+                }
         default:
             return state;
     }

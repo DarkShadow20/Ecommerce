@@ -1,15 +1,16 @@
 import axios from 'axios';
-import React from 'react'
-import { useCart } from '../context/CartContext'
-import "../css/CheckoutCart.css";
+import { useAuth } from '../../context/AuthContext';
+import { useCart } from '../../context/CartContext'
+import "../../css/CheckoutCart.css";
 
 
 function CheckoutCart({item}) {
     //eslint-disable-next-line
     const [state,dispatch]=useCart();
+    const {userData}=useAuth();
     const removeFromCart=async ()=>{
         try{
-            const response=await axios.delete(`https://Ecommerce.kunalgupta9.repl.co/cart/${item.id}`)
+            const response=await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:item.id,action:"MOVE"})
             if(response.status===201){
                 console.log("Deleted successfully")
             }
@@ -23,7 +24,7 @@ function CheckoutCart({item}) {
     }
     const addQuantity= async ()=>{
         try{
-            const response=await axios.post(`https://Ecommerce.kunalgupta9.repl.co/cart/${item.id}`,{quantity:item.quantity+1})
+            const response=await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:item.id,action:"ADD"})
             if(response.status===201){
                 console.log("Updated quantity")
             }
@@ -37,7 +38,7 @@ function CheckoutCart({item}) {
     }
     const subtractQuantity = async () => {
         try{
-            const response=await axios.post(`https://Ecommerce.kunalgupta9.repl.co/cart/${item.id}`,{quantity:item.quantity-1})
+            const response=await axios.post(`https://Ecom.kunalgupta9.repl.co/cart/${userData?._id}`,{_id:item.id,action:"REMOVE"})
             if(response.status===201){
                 console.log("Updated quantity")
             }
@@ -66,7 +67,7 @@ function CheckoutCart({item}) {
                         </div>
                     </p>
                 <span>
-                    <span class="strong-element">Rs.{item.price}</span>
+                    <span className="strong-element">Rs.{item.price}</span>
                 </span>
                 <div className="checkoutCart-quantity">
                     <button className="btn btn-primary" onClick={addQuantity} >+</button>
